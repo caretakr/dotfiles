@@ -16,5 +16,7 @@
 !.zlogin
 !.zlogout
 
+!.p10k.zsh
+
 !.ssh
 !.ssh/authorized_keys
