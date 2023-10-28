@@ -10,5 +10,11 @@
 
 !README.md
 
+!.zshenv
+!.zprofile
+!.zshrc
+!.zlogin
+!.zlogout
+
 !.ssh
 !.ssh/authorized_keys
