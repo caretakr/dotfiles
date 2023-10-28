@@ -1,0 +1,14 @@
+##
+## List of files to be ignored by Git
+##
+## See: http://help.github.com/ignore-files for more information.
+##
+
+*
+
+!.gitignore
+
+!README.md
+
+!.ssh
+!.ssh/authorized_keys
