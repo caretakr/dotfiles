@@ -33,6 +33,9 @@
 !.config/systemd/user
 !.config/systemd/user/**/*
 
+!.config/wallpaper
+!.config/wallpaper/service.conf
+
 !.scripts
 
 !.scripts/sway
