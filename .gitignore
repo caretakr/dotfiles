@@ -20,3 +20,26 @@
 
 !.ssh
 !.ssh/authorized_keys
+
+!.config
+
+!.config/sway
+!.config/sway/config
+!.config/sway/config.d
+!.config/sway/config.d/**/*.d
+!.config/sway/config.d/**/*.conf
+
+!.config/systemd
+!.config/systemd/user
+!.config/systemd/user/**/*
+
+!.scripts
+
+!.scripts/sway
+!.scripts/sway/*rc
+!.scripts/sway/initrc.d
+!.scripts/sway/initrc.d/**/*.d
+!.scripts/sway/initrc.d/**/*.sh
+!.scripts/sway/postrc.d
+!.scripts/sway/postrc.d/**/*.d
+!.scripts/sway/postrc.d/**/*.sh

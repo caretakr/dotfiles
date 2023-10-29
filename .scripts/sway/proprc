@@ -1,0 +1,32 @@
+#!/bin/sh
+
+##
+## Prop
+##
+
+main() {
+  local file="$(/usr/bin/mktemp)"
+
+  _cleanup() {
+    rm "$file"
+  }
+
+  trap _cleanup EXIT ERR
+
+  focused_output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true).name')
+  output_dimensions=$(swaymsg -t get_outputs | jq -r --arg focused_output "$focused_output" '.[] | select(.name==$focused_output) | "\(.rect.width) \(.rect.height)"')
+
+  width=$(echo $output_dimensions | awk '{printf "%.0f", $1 * 0.5}')
+  height=$(echo $output_dimensions | awk '{printf "%.0f", $2 * 0.5}')
+
+  /usr/bin/swaymsg -t get_tree \
+    | /usr/bin/jq '.. | select(.type?) | select(.focused==true)' \
+    > "$file"
+
+  /usr/bin/foot \
+    --app-id="foot.prop" \
+    --window-size-pixels "${width}x${height}" \
+    less $file
+}
+
+main "$@"

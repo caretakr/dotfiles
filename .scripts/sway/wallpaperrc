@@ -1,0 +1,60 @@
+#!/bin/sh
+
+##
+## Wallpaper
+##
+
+_main() {
+  local pid_file=""
+
+  _cleanup() {
+    kill $(/usr/bin/cat "$pid_file") \
+      && rm -f "$pid_file"
+  }
+
+  trap _cleanup EXIT ERR
+
+  local interval=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -i|--interval) interval="$2"; shift 2 ;;
+
+      --interval=*) interval="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$interval" ] && { echo "Interval missing"; exit 1; }
+
+  pid_file="$XDG_RUNTIME_DIR/swaybg.pid"
+
+  while true; do
+    find $HOME/.wallpapers/* \
+      | /usr/bin/shuf \
+      | while read -r i; do
+        local current_minutes=$(/usr/bin/date +%M)
+        local seconds_to_next=$(( ((interval - current_minutes % interval) % interval) * 60 - $(/usr/bin/date +%-S) ))
+
+        /usr/bin/swaybg -i "$i" &
+
+        new_pid=$!
+
+        if [ -f "$pid_file" ]; then
+          old_pid="$(cat $pid_file)"
+
+          (
+            sleep 1 \
+              && kill $old_pid
+          ) &
+        fi
+
+        echo "$new_pid" > "$pid_file"
+
+        sleep $((60 + $seconds_to_next))
+      done
+  done
+}
+
+_main "$@"

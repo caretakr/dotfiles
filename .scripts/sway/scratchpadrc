@@ -1,0 +1,37 @@
+#!/bin/sh
+
+##
+## Scratchpad
+##
+
+main() {
+  focused_output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true).name')
+  output_dimensions=$(swaymsg -t get_outputs | jq -r --arg focused_output "$focused_output" '.[] | select(.name==$focused_output) | "\(.rect.width) \(.rect.height)"')
+
+  width=$(echo $output_dimensions | awk '{printf "%.0f", $1-40}')
+  height=$(echo $output_dimensions | awk '{printf "%.0f", $2-40-28}')
+
+  /usr/bin/swaymsg "[app_id=\"foot.scratchpad\"] scratchpad show" \
+    && /usr/bin/swaymsg "[app_id=\"foot.scratchpad\"] resize set width ${width}px, resize set height ${height}px, move position center" \
+    && exit 0
+
+  local state=$(/usr/bin/systemctl --user show -p ActiveState 'scratchpad.service' | /usr/bin/cut -d= -f2)
+
+  if [ "$state" = 'failed' ]; then
+    /usr/bin/systemctl --user reset-failed 'scratchpad.service'
+  fi
+
+  /usr/bin/systemd-run \
+      --user \
+      --slice='scratchpad.slice' \
+      --unit="scratchpad" \
+      --nice=15 \
+      /usr/bin/foot \
+      --app-id='foot.scratchpad' \
+      --window-size-pixels="${width}x${height}" \
+      tmux \
+      new-session -A \
+      -s scratchpad
+}
+
+main "$@"
