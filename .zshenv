@@ -53,6 +53,24 @@ else
   export BROWSER="links"
 fi
 
+export ELECTRON_TRASH="trash-cli"
+
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_USE_XINPUT2=1
+
+export GDK_BACKEND="wayland,x11"
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_STYLE_OVERRIDE="kvantum"
+
+export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
+
 # Ensure that a non-login, non-interactive shell has a environment
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
   source ".zprofile"
