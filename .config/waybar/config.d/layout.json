@@ -1,0 +1,25 @@
+{
+  "height": 28,
+  "modules-left": [
+    "sway/workspaces",
+    "sway/scratchpad",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "clock#weekday",
+    "custom/clock#separator",
+    "clock#date",
+    "custom/clock#separator",
+    "clock#time"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "idle_inhibitor",
+    "pulseaudio#input",
+    "wireplumber",
+    "network#ethernet",
+    "network#wifi",
+    "battery"
+  ]
+}
