@@ -40,9 +40,8 @@
 !.config/waybar/config.json
 !.config/waybar/style.css
 !.config/waybar/config.d
-!.config/waybar/config.d/*.json
-!.config/waybar/config.d/*
-!.config/waybar/config.d/*/*
+!.config/waybar/config.d/**
+!.config/waybar/config.d/**/*.json
 
 !.scripts
 

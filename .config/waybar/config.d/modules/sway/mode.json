@@ -1,0 +1,5 @@
+{
+  "sway/mode": {
+    "format": "<span font_family=\"Symbols Nerd Font\" font_size=\"8pt\" rise=\"1pt\"></span><span font=\"Noto Sans 10px\">  {}</span>"
+  }
+}

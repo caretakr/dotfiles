@@ -1,0 +1,6 @@
+{
+  "sway/window": {
+    "format": "<span font_family=\"Symbols Nerd Font\" font_size=\"8pt\">  {}</span>",
+    "max-length": 24
+  }
+}
