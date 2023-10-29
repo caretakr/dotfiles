@@ -1,0 +1,5 @@
+[Unit]
+Description=Current Wayland user session
+Documentation=man:systemd.special(7)
+Requires=basic.target
+BindsTo=graphical-session.target
