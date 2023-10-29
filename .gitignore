@@ -43,3 +43,6 @@
 !.scripts/sway/postrc.d
 !.scripts/sway/postrc.d/**/*.d
 !.scripts/sway/postrc.d/**/*.sh
+
+!.wallpapers
+!.wallpapers/**/*
