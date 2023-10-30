@@ -23,11 +23,26 @@
 
 !.config
 
+!.config/gammastep
+!.config/gammastep/**/*
+
+!.config/idle
+!.config/idle/**/*
+
+!.config/kanshi
+!.config/kanshi/**/*
+
+!.config/mako
+!.config/mako/**/*
+
 !.config/sway
 !.config/sway/config
 !.config/sway/config.d
 !.config/sway/config.d/**/*.d
 !.config/sway/config.d/**/*.conf
+
+!.config/swaylock
+!.config/swaylock/**/*
 
 !.config/systemd
 !.config/systemd/user
