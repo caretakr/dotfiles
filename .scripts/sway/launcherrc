@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 ##
-## Launcher
+## Launcher script
 ##
 
 main() {

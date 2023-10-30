@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-## Post startup
+## Post scripts
 ##
 
 postrc_directory="$HOME/.scripts/sway/postrc.d"
