@@ -23,6 +23,9 @@
 
 !.config
 
+!.config/foot
+!.config/foot/**/*
+
 !.config/gammastep
 !.config/gammastep/**/*
 
