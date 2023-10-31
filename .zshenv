@@ -4,6 +4,10 @@
 
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/compdump"
 
+##
+## XDG base directory
+##
+
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -21,6 +25,10 @@ export XDG_VIDEOS_DIR="$HOME/Videos"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DATA_DIRS="$XDG_DATA_HOME:$XDG_DATA_HOME/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
+##
+## Proxy
+##
+
 export HTTP_PROXY="http://127.0.0.1:3128"
 export SOCKS_PROXY="socks5://127.0.0.1:1080"
 
@@ -37,11 +45,61 @@ export rsync_proxy="$rsync_proxy"
 export NO_PROXY="localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24,192.168.39.0/24"
 export no_proxy="$NO_PROXY"
 
+##
+## Paths
+##
+
 export ANDROID_HOME="$HOME/.android/sdk"
 export CARGO_HOME="$HOME/.cargo"
 
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$CARGO_HOME/bin"
+
+##
+## Electron
+##
+
+export ELECTRON_TRASH="trash-cli"
+
+##
+## Mozilla
+##
+
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_USE_XINPUT2=1
+
+##
+## GTK
+##
+
+export GDK_BACKEND="wayland,x11"
+
+##
+## Java
+##
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
+##
+## QT
+##
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=1
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_STYLE_OVERRIDE="kvantum"
+
+##
+## Wob
+##
+
+export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
+
+##
+## Defaults
+##
 
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -53,25 +111,7 @@ else
   export BROWSER="links"
 fi
 
-export ELECTRON_TRASH="trash-cli"
-
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_USE_XINPUT2=1
-
-export GDK_BACKEND="wayland,x11"
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
-
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_ENABLE_HIGHDPI_SCALING=1
-export QT_QPA_PLATFORM="wayland;xcb"
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_STYLE_OVERRIDE="kvantum"
-
-export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
-
-# Ensure that a non-login, non-interactive shell has a environment
+## Ensure that a non-login, non-interactive shell has a environment
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
   source ".zprofile"
 fi
