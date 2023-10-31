@@ -1,9 +1,9 @@
 [Unit]
 Description=KeePassXC
 Documentation=https://keepassxc.org/docs
-#PartOf=wayland-session.target
-#Requires=sway-session.target
-#After=sway-session.target
+PartOf=wayland-session.target
+Requires=sway-session.target
+After=sway-session.target
 
 [Service]
 Slice=keepassxc.slice
@@ -13,4 +13,4 @@ RestartSec=1
 Nice=5
 
 [Install]
-WantedBy=default.target
+WantedBy=sway-session.target
