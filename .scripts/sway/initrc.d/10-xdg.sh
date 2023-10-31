@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-## XDG script
+## XDG base directory
 ##
 
 export XDG_CURRENT_DESKTOP="sway"

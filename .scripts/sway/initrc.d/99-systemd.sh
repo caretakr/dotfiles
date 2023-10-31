@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-## Systemd script
+## Systemd
 ##
 
 if command -v /usr/bin/dbus-update-activation-environment >/dev/null 2>&1; then
