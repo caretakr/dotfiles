@@ -2,28 +2,28 @@
 ## ZSH environment
 ##
 
-export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/compdump"
+export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/compdump"
 
 ##
 ## XDG base directory
 ##
 
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
 
-export XDG_DESKTOP_DIR="$HOME/Desktop"
-export XDG_DOCUMENTS_DIR="$HOME/Documents"
-export XDG_DOWNLOAD_DIR="$HOME/Downloads"
-export XDG_MUSIC_DIR="$HOME/Music"
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_PUBLICSHARE_DIR="$HOME/Public"
-export XDG_TEMPLATES_DIR="$HOME/Templates"
-export XDG_VIDEOS_DIR="$HOME/Videos"
+export XDG_DESKTOP_DIR="${HOME}/Desktop"
+export XDG_DOCUMENTS_DIR="${HOME}/Documents"
+export XDG_DOWNLOAD_DIR="${HOME}/Downloads"
+export XDG_MUSIC_DIR="${HOME}/Music"
+export XDG_PICTURES_DIR="${HOME}/Pictures"
+export XDG_PUBLICSHARE_DIR="${HOME}/Public"
+export XDG_TEMPLATES_DIR="${HOME}/Templates"
+export XDG_VIDEOS_DIR="${HOME}/Videos"
 
 export XDG_CONFIG_DIRS="/etc/xdg"
-export XDG_DATA_DIRS="$XDG_DATA_HOME:$XDG_DATA_HOME/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
+export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_HOME}/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
 ##
 ## Proxy
@@ -49,11 +49,17 @@ export no_proxy="$NO_PROXY"
 ## Paths
 ##
 
-export ANDROID_HOME="$HOME/.android/sdk"
-export CARGO_HOME="$HOME/.cargo"
+export ANDROID_HOME="${HOME}/.android/sdk"
+export CARGO_HOME="${HOME}/.cargo"
 
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
+export PATH="${PATH}:${CARGO_HOME}/bin"
+
+##
+## SSH
+##
+
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 ##
 ## Electron
@@ -95,7 +101,7 @@ export QT_STYLE_OVERRIDE="kvantum"
 ## Wob
 ##
 
-export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
+export WOBSOCK="${XDG_RUNTIME_DIR}/wob.sock"
 
 ##
 ## Defaults
