@@ -1,17 +1,4 @@
-[Unit]
-Description=Idle manager for Wayland
-Documentation=man:swayidle(1)
-PartOf=wayland-session.target
-Requires=sway-session.target
-After=sway-session.target
-
-[Service]
-Slice=idle.slice
-EnvironmentFile=%E/idle/service.conf
-ExecStart=/usr/bin/swayidle -w before-sleep "swaylock -C -f" timeout "${LOCK_TIMEOUT}" "swaylock -f" timeout "${DPMS_TIMEOUT}" "swaymsg 'output * power off'" resume "swaymsg 'output * power on'"
-Restart=on-failure
-RestartSec=1
-Nice=5
-
-[Install]
-WantedBy=sway-session.target
+[Slice]
+MemorySwapMax=0
+MemoryZSwapMax=0
+ManagedOOMPreference=avoid
