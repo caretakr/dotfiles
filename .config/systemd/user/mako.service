@@ -6,8 +6,8 @@ Requires=sway-session.target
 After=sway-session.target
 
 [Service]
-#Type=dbus
-#BusName=org.freedesktop.Notifications
+Type=dbus
+BusName=org.freedesktop.Notifications
 Slice=mako.slice
 ExecStart=/usr/bin/mako
 Nice=5
