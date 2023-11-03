@@ -1,10 +1,4 @@
 ##
-## ZSH environment
-##
-
-export ZSH_COMPDUMP="${XDG_CACHE_HOME}/zsh/compdump"
-
-##
 ## XDG base directory
 ##
 
