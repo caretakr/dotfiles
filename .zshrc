@@ -74,7 +74,7 @@ mkdirp "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdirp "${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
 
 ## Cache for completions
-ZSH_COMPDUMP="${XDG_CACHE_HOME:$HOME/.local/share}/zsh/compdump"
+ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.local/share}/zsh/compdump"
 
 ## Remove extra space
 ZLE_RPROMPT_INDENT=0
