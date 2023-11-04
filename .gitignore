@@ -18,6 +18,8 @@
 
 !.p10k.zsh
 
+!.hushlogin
+
 !.tmux.conf
 
 !.ssh
