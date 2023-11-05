@@ -10,18 +10,15 @@ _SOCKS_VERSION="$SOCKS_VERSION"
 _NO_PROXY="$NO_PROXY"
 
 load() {
-  local file="$1"
-
-  [ -r "$file" ] \
-    && source "$file" \
-    || return 1
+  [[ -r "$1" ]] && {
+    source "$1"
+  }
 }
 
 mkdirp() {
-  local dir="$1"
-
-  [ ! -d "$dir" ] \
-    && mkdir -p "$dir"
+  [[ -d "$1" ]] || {
+    mkdir -p "$1"
+  }
 }
 
 proxy_off() {
@@ -63,10 +60,6 @@ proxy_on() {
 ## Load Powerlevel10k instant prompt early
 load "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
-## Load the ZSH completion
-autoload -Uz compinit \
-  && compinit -d "$ZSH_COMPDUMP"
-
 ## Create cache directory if not exists
 mkdirp "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
@@ -75,6 +68,10 @@ mkdirp "${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
 
 ## Cache for completions
 ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.local/share}/zsh/compdump"
+
+## Load the ZSH completion
+autoload -Uz compinit \
+  && compinit -d "$ZSH_COMPDUMP"
 
 ## Remove extra space
 ZLE_RPROMPT_INDENT=0
