@@ -1,0 +1,8 @@
+##
+## Sway config
+##
+
+# Execute post script after init
+exec_always $HOME/.scripts/sway/postrc
+
+include config.d/*.conf

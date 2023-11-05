@@ -1,0 +1,17 @@
+#!/bin/sh
+
+##
+## Post scripts
+##
+
+postrc_directory="$HOME/.scripts/sway/postrc.d"
+
+if [ -d "$postrc_directory" ]; then
+  for file in "$postrc_directory"/?*.sh; do
+    [ -x "$file" ] && . "$file"
+  done
+
+  unset file
+fi
+
+/usr/bin/systemctl start sway-session.target --user --no-block

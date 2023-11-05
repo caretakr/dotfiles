@@ -1,0 +1,16 @@
+[Unit]
+Description=KeePassXC
+Documentation=https://keepassxc.org/docs
+PartOf=wayland-session.target
+Requires=sway-session.target
+After=sway-session.target
+
+[Service]
+Slice=keepassxc.slice
+ExecStart=/usr/bin/keepassxc
+Restart=on-failure
+RestartSec=1
+Nice=5
+
+[Install]
+WantedBy=sway-session.target

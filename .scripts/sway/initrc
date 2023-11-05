@@ -1,0 +1,17 @@
+#!/bin/sh
+
+##
+## Init scripts
+##
+
+initrc_directory="$HOME/.scripts/sway/initrc.d"
+
+if [ -d "$initrc_directory" ]; then
+  for file in "$initrc_directory"/?*.sh; do
+    [ -x "$file" ] && . "$file"
+  done
+
+  unset file
+fi
+
+/usr/bin/systemctl --user start sway.service --wait

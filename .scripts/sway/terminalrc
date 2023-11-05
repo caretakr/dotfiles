@@ -1,0 +1,25 @@
+#!/bin/sh
+
+##
+## Terminal script
+##
+
+main() {
+  local state=$(/usr/bin/systemctl --user show -p ActiveState 'terminal.service' | /usr/bin/cut -d= -f2)
+
+  if [ "$state" = 'failed' ]; then
+    /usr/bin/systemctl --user reset-failed 'terminal.service'
+  fi
+
+  /usr/bin/systemd-run \
+      --user \
+      --slice='terminal.slice' \
+      --unit="terminal" \
+      --nice=15 \
+      /usr/bin/foot \
+      tmux \
+      new-session -A \
+      -s terminal
+}
+
+main "$@"

@@ -1,0 +1,22 @@
+{
+  "sway/workspaces": {
+    "format": "<span font_family=\"Symbols Nerd Font\" font_size=\"8pt\">{icon}</span>",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "󰭹"
+    },
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  }
+}

@@ -1,0 +1,9 @@
+##
+## Sway session target
+##
+
+[Unit]
+Description=Current Sway user session
+Documentation=man:systemd.special(7)
+Requires=graphical-session.target
+BindsTo=wayland-session.target

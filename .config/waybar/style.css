@@ -1,0 +1,187 @@
+/**
+ * Styles
+ */
+
+@keyframes alert {
+  to {
+    color: rgb (248, 248, 242);
+    background: rgb(255, 85, 85);
+  }
+}
+
+window#waybar #custom-clock {
+  opacity: 1; /* Fix for custom module colors */
+}
+
+window#waybar {
+  color: rgb(202, 211, 245);
+  /*background: rgb(36, 39, 58);*/
+  background: rgb(30, 30, 46);
+}
+
+window#waybar widget button {
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar widget button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+window#waybar widget box#workspaces button {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  color: rgb(202, 211, 245);
+}
+
+window#waybar widget box#workspaces button:hover,
+window#waybar widget box#workspaces button.focused:hover {
+  color: rgb(36, 39, 58);
+  background: rgb(198, 160, 246);
+}
+
+window#waybar widget box#workspaces button.focused {
+  color: rgb(36, 39, 58);
+  background: rgb(198, 160, 246);
+}
+
+window#waybar widget box#workspaces button.urgent {
+  color: rgb(36, 39, 58);
+  background: rgb(237, 135, 150);
+}
+
+window#waybar label#idle_inhibitor {
+  padding: 0 8px;
+  min-width: 24px;
+}
+
+window#waybar label#scratchpad {
+  padding: 0 8px;
+}
+
+window#waybar label#mode {
+  padding: 0 8px;
+}
+
+window#waybar #clock,
+window#waybar #custom-clock {
+  padding: 0 4px;
+}
+
+window#waybar #clock-weekday {
+  padding-left: 8px
+}
+
+window#waybar #clock-time {
+  padding-right: 8px
+}
+
+window#waybar #tray {
+  padding: 0 8px;
+}
+
+window#waybar label#memory {
+  padding: 0 8px;
+  min-width: 86px;
+}
+
+window#waybar label#cpu {
+  padding: 0 8px;
+  min-width: 48px;
+}
+
+window#waybar label#temperature {
+  padding: 0 8px;
+  min-width: 48px;
+}
+
+window#waybar label#temperature.critical {
+  color: rgb(36, 39, 58);
+  background: rgb(237, 135, 150);
+}
+
+window#waybar label#backlight {
+  padding: 0 8px;
+  min-width: 48px;
+}
+
+window#waybar label#wireplumber,
+window#waybar label#pulseaudio {
+  padding: 0 8px;
+  min-width: 50px;
+}
+
+window#waybar label#pulseaudio.input {
+  min-width: 12px;
+
+  color: rgb(36, 39, 58);
+  background: rgb(237, 135, 150);
+}
+
+window#waybar label#pulseaudio.input.source-muted {
+  color: rgb(36, 39, 58);
+  background: rgb(166, 218, 149);
+}
+
+window#waybar label#pulseaudio.input:not(.source-muted) {
+  animation-name: alert;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+window#waybar label#network {
+  padding: 0 8px;
+}
+
+window#waybar label#network.wifi,
+window#waybar label#network.ethernet {
+  color: rgb(36, 39, 58);
+  background: rgb(166, 218, 149);
+}
+
+window#waybar label#network.linked,
+window#waybar label#network.disconnected,
+window#waybar label#network.disabled {
+  color: rgb(36, 39, 58);
+  background: rgb(237, 135, 150);
+}
+
+window#waybar label#battery {
+  padding: 0 8px;
+  min-width: 48px;
+}
+
+window#waybar label#battery.plugged,
+window#waybar label#battery.charging {
+  color: rgb(36, 39, 58);
+  background: rgb(166, 218, 149);
+}
+
+window#waybar label#battery.discharging,
+window#waybar label#battery.warning-20 {
+  color: rgb(36, 39, 58);
+  background: rgb(238, 212, 159);
+}
+
+window#waybar label#battery.critical-10 {
+  color: rgb(36, 39, 58);
+  background: rgb(237, 135, 150);
+}
+
+window#waybar #tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+window#waybar #tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: rgb(237, 135, 150);
+}
+
+
