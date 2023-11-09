@@ -29,7 +29,7 @@ export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_HOME}/flatpak/exports/share:/v
 ## Proxy
 ##
 
-export HTTP_PROXY="http://127.0.0.1:3128"
+export HTTP_PROXY="http://127.0.0.1:8118"
 export SOCKS_PROXY="socks5://127.0.0.1:1080"
 
 export SOCKS_VERSION="5"
