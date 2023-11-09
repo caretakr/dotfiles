@@ -86,8 +86,8 @@ main() {
     width=$(echo $output_dimensions | awk '{printf "%.0f", $1 * 0.5}')
     height=$(echo $output_dimensions | awk '{printf "%.0f", $2 * 0.5}')
 
-    /usr/bin/swaymsg "[app_id=\"foot.launcher\"] scratchpad show" \
-      && /usr/bin/swaymsg "[app_id=\"foot.launcher\"] resize set width ${width}px, resize set height ${height}px, move position center" \
+    /usr/bin/swaymsg "[app_id=\"foot.launcher\"] scratchpad show" > /dev/null 2>&1 \
+      && /usr/bin/swaymsg "[app_id=\"foot.launcher\"] resize set width ${width}px, resize set height ${height}px, move position center" > /dev/null 2>&1 \
       && exit 0
 
     /usr/bin/foot \
