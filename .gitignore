@@ -52,6 +52,9 @@
 !.config/mako
 !.config/mako/**/*
 
+!.config/nvim
+!.config/nvim/**/*
+
 !.config/sway
 !.config/sway/config
 !.config/sway/config.d
