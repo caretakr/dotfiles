@@ -1,0 +1,29 @@
+#!/bin/bash
+
+##
+## Keychain
+##
+
+
+main() {
+  focused_output=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true).name')
+  output_dimensions=$(swaymsg -t get_outputs | jq -r --arg focused_output "$focused_output" '.[] | select(.name==$focused_output) | "\(.rect.width) \(.rect.height)"')
+
+  output_width=$(echo $output_dimensions | awk '{print $1}')
+  output_height=$(echo $output_dimensions | awk '{print $2}')
+
+  width=$(echo $output_dimensions | awk '{printf "%.0f", $1 * 0.8}')
+  height=$(echo $output_dimensions | awk '{printf "%.0f", $2 * 0.8}')
+
+  x=$((output_width / 2 - width / 2))
+  y=$((output_height / 2 - height / 2))
+
+  /usr/bin/swaymsg "[app_id=\"org.keepassxc.KeePassXC\"] scratchpad show" > /dev/null 2>&1 \
+    && /usr/bin/swaymsg "[app_id=\"org.keepassxc.KeePassXC\"] resize set width ${width}px, resize set height ${height}px, move position center" > /dev/null 2>&1 \
+    && exit 0
+
+  /usr/bin/keepassxc \
+    --qwindowgeometry "${width}x${heigh}+${y}+${y}"
+}
+
+main $@
