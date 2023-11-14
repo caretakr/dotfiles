@@ -8,7 +8,7 @@ After=sway-session.target
 [Service]
 Slice=idle.slice
 EnvironmentFile=%E/idle/service.conf
-ExecStart=/usr/bin/swayidle -w before-sleep "swaylock -f" timeout "${LOCK_TIMEOUT}" "swaylock -f" timeout "${DPMS_TIMEOUT}" "swaymsg 'output * power off'" resume "swaymsg 'output * power on'"
+ExecStart=/usr/bin/sh -c "/usr/bin/swayidle -w before-sleep 'swaylock -f' timeout '${LOCK_TIMEOUT}' 'swaylock -f' timeout '${DPMS_TIMEOUT}' 'swaymsg \"output * dpms off\"' resume 'swaymsg \"output * dpms on\"' > /dev/null 2>&1"
 Restart=on-failure
 RestartSec=1
 Nice=5
