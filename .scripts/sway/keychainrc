@@ -18,8 +18,8 @@ main() {
   x=$((output_width / 2 - width / 2))
   y=$((output_height / 2 - height / 2))
 
-  /usr/bin/swaymsg "[app_id=\"org.keepassxc.KeePassXC\"] scratchpad show" > /dev/null 2>&1 \
-    && /usr/bin/swaymsg "[app_id=\"org.keepassxc.KeePassXC\"] resize set width ${width}px, resize set height ${height}px, move position center" > /dev/null 2>&1 \
+  /usr/bin/swaymsg -q "[app_id=\"org.keepassxc.KeePassXC\"] scratchpad show" \
+    && /usr/bin/swaymsg -q "[app_id=\"org.keepassxc.KeePassXC\"] resize set width ${width}px, resize set height ${height}px, move position center" \
     && exit 0
 
   /usr/bin/keepassxc \
