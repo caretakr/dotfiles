@@ -51,9 +51,13 @@ export no_proxy="$NO_PROXY"
 
 export ANDROID_HOME="${HOME}/.android/sdk"
 export CARGO_HOME="${HOME}/.cargo"
+export NPM_HOME="${HOME}/.npm"
+
+export npm_config_prefix="$NPM_HOME"
 
 export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:${CARGO_HOME}/bin"
+export PATH="${PATH}:${NPM_HOME}/bin"
 
 ##
 ## SSH
