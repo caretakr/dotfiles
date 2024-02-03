@@ -76,7 +76,7 @@
 !.config/systemd/user/polkit-agent.*
 !.config/systemd/user/sway.*
 !.config/systemd/user/terminal.*
-!.config/systemd/user/tmux.*
+!.config/systemd/user/tmux@.*
 !.config/systemd/user/udiskie.*
 !.config/systemd/user/wallpaper.*
 !.config/systemd/user/waybar.*
@@ -91,7 +91,7 @@
 !.config/systemd/user/sway-session.*/keepassxc.*
 !.config/systemd/user/sway-session.*/mako.*
 !.config/systemd/user/sway-session.*/polkit-agent.*
-!.config/systemd/user/sway-session.*/tmux.*
+!.config/systemd/user/sway-session.*/tmux@*.*
 !.config/systemd/user/sway-session.*/udiskie.*
 !.config/systemd/user/sway-session.*/wallpaper.*
 !.config/systemd/user/sway-session.*/waybar.*

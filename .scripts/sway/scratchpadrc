@@ -29,9 +29,7 @@ main() {
       /usr/bin/foot \
       --app-id='foot.scratchpad' \
       --window-size-pixels="${width}x${height}" \
-      tmux \
-      new-session -A \
-      -s scratchpad
+      tmux attach -t scratchpad
 }
 
 main "$@"

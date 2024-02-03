@@ -17,9 +17,7 @@ main() {
       --unit="terminal" \
       --nice=15 \
       /usr/bin/foot \
-      tmux \
-      new-session -A \
-      -s terminal
+      tmux attach -t terminal
 }
 
 main "$@"

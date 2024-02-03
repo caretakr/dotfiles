@@ -1,14 +1,14 @@
 [Unit]
-Description=Start tmux in detached session
+Description=Tmux session %I
 PartOf=wayland-session.target
 Requires=sway-session.target
 After=sway-session.target
 
 [Service]
-Slice=terminal.slice
+Slice=%i.slice
 Type=forking
-ExecStart=/usr/bin/tmux new-session -s %u -d
-ExecStop=/usr/bin/tmux kill-session -t %u
+ExecStart=/usr/bin/tmux new-session -s %i -d
+ExecStop=/usr/bin/tmux kill-session -t %i
 Nice=10
 
 [Install]

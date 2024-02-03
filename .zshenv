@@ -49,13 +49,18 @@ export no_proxy="$NO_PROXY"
 ## Paths
 ##
 
-export ANDROID_HOME="${HOME}/.android/sdk"
+export ANDROID_HOME="${HOME}/.android"
 export CARGO_HOME="${HOME}/.cargo"
 export NPM_HOME="${HOME}/.npm"
 
 export npm_config_prefix="$NPM_HOME"
 
+export PATH="${PATH}:/home/caretakr/.local/bin"
+
+export PATH="${PATH}:${ANDROID_HOME}/tools"
+export PATH="${PATH}:${ANDROID_HOME}/tools/bin"
 export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
+
 export PATH="${PATH}:${CARGO_HOME}/bin"
 export PATH="${PATH}:${NPM_HOME}/bin"
 
