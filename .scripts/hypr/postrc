@@ -14,4 +14,4 @@ if [ -d "$postrc_directory" ]; then
 	unset file
 fi
 
-/usr/bin/systemctl --user start wayland-session.target --no-block
+/usr/bin/systemctl --user start hyprland-session.target --no-block

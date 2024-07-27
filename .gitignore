@@ -87,6 +87,8 @@
 
 !.config/systemd/user/graphical-environment.*
 
+!.config/systemd/user/hyprland-session.target
+
 !.config/systemd/user/sway-session.*
 !.config/systemd/user/sway-session.*/clipboard.*
 !.config/systemd/user/sway-session.*/gammastep.*
