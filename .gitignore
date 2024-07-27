@@ -43,6 +43,9 @@
 !.config/gtk-3.0
 !.config/gtk-3.0/**/*
 
+!.config/hypr
+!.config/hypr/**/*
+
 !.config/idle
 !.config/idle/**/*
 
@@ -118,6 +121,9 @@
 !.scripts/sway/postrc.d
 !.scripts/sway/postrc.d/**/*.d
 !.scripts/sway/postrc.d/**/*.sh
+
+!.scripts/hypr
+!.scripts/hypr/**/*
 
 !.wallpapers
 !.wallpapers/**/*
