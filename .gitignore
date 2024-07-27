@@ -103,7 +103,8 @@
 !.config/systemd/user/sway-session.*/wallpaper.*
 !.config/systemd/user/sway-session.*/waybar.*
 
-!.config/systemd/user/wayland-session.*
+!.config/systemd/user/wayland-session.target.wants
+!.config/systemd/user/wayland-session.target.wants/*
 
 !.config/wallpaper
 !.config/wallpaper/service.conf
