@@ -6,8 +6,8 @@
 
 while
 	[ -z $HYPRLAND_INSTANCE_SIGNATURE ] ||
-		[ ! -S "$XDG_RUNTIME_DIR/$HYPRLAND_INSTANCE_SIGNATURE/.socket.sock" ] ||
-		[ ! -S "$XDG_RUNTIME_DIR/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" ]
+		[ ! -S "$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket.sock" ] ||
+		[ ! -S "$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock" ]
 do
 	sleep 1
 done
