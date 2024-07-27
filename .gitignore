@@ -80,7 +80,8 @@
 !.config/systemd/user/polkit-agent.*
 !.config/systemd/user/sway.*
 !.config/systemd/user/terminal.*
-!.config/systemd/user/tmux@.*
+!.config/systemd/user/tmux@.service
+!.config/systemd/user/tmux-*.slice
 !.config/systemd/user/udiskie.*
 !.config/systemd/user/wallpaper.*
 !.config/systemd/user/waybar.*
@@ -126,7 +127,20 @@
 !.scripts/sway/postrc.d/**/*.sh
 
 !.scripts/hypr
-!.scripts/hypr/**/*
+
+!.scripts/hypr/initrc
+!.scripts/hypr/initrc.d
+!.scripts/hypr/initrc.d/**/*.d
+!.scripts/hypr/initrc.d/**/*.sh
+
+!.scripts/hypr/postrc
+!.scripts/hypr/postrc.d
+!.scripts/hypr/postrc.d/**/*.d
+!.scripts/hypr/postrc.d/**/*.sh
+
+!.scripts/hypr/launcherrc
+!.scripts/hypr/terminalrc
+!.scripts/hypr/scratchpadrc
 
 !.wallpapers
 !.wallpapers/**/*
