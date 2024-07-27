@@ -71,7 +71,6 @@
 !.config/systemd/user
 
 !.config/systemd/user/clipboard.*
-!.config/systemd/user/gammastep.*
 !.config/systemd/user/hyprland.*
 !.config/systemd/user/idle.*
 !.config/systemd/user/kanshi.*
@@ -85,6 +84,8 @@
 !.config/systemd/user/udiskie.*
 !.config/systemd/user/wallpaper.*
 !.config/systemd/user/waybar.*
+!.config/systemd/user/wlsunset.service
+!.config/systemd/user/wlsunset.slice
 
 !.config/systemd/user/graphical-environment.*
 
@@ -115,6 +116,9 @@
 !.config/waybar/config.d
 !.config/waybar/config.d/**
 !.config/waybar/config.d/**/*.json
+
+!.config/wlsunset
+!.config/wlsunset/*
 
 !.scripts
 
