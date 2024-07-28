@@ -1,0 +1,4 @@
+[Slice]
+MemorySwapMax=0
+MemoryZSwapMax=0
+ManagedOOMPreference=avoid
