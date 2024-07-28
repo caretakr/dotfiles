@@ -84,12 +84,15 @@
 !.config/systemd/user/udiskie.*
 !.config/systemd/user/wallpaper.*
 !.config/systemd/user/waybar.*
-!.config/systemd/user/wlsunset.service
-!.config/systemd/user/wlsunset.slice
+!.config/systemd/user/wlsunset.*
 
-!.config/systemd/user/graphical-environment.*
+!.config/systemd/user/graphical-environment.target
+!.config/systemd/user/graphical-environment.target.wants
+!.config/systemd/user/graphical-environment.target.wants/**/*
 
 !.config/systemd/user/hyprland-session.target
+!.config/systemd/user/hyprland-session.target.wants
+!.config/systemd/user/hyprland-session.target.wants/**/*
 
 !.config/systemd/user/sway-session.*
 !.config/systemd/user/sway-session.*/clipboard.*
@@ -104,8 +107,9 @@
 !.config/systemd/user/sway-session.*/wallpaper.*
 !.config/systemd/user/sway-session.*/waybar.*
 
+!.config/systemd/user/wayland-session.target
 !.config/systemd/user/wayland-session.target.wants
-!.config/systemd/user/wayland-session.target.wants/*
+!.config/systemd/user/wayland-session.target.wants/**/*
 
 !.config/wallpaper
 !.config/wallpaper/service.conf
@@ -118,7 +122,7 @@
 !.config/waybar/config.d/**/*.json
 
 !.config/wlsunset
-!.config/wlsunset/*
+!.config/wlsunset/**/*
 
 !.scripts
 
@@ -132,20 +136,7 @@
 !.scripts/sway/postrc.d/**/*.sh
 
 !.scripts/hypr
-
-!.scripts/hypr/initrc
-!.scripts/hypr/initrc.d
-!.scripts/hypr/initrc.d/**/*.d
-!.scripts/hypr/initrc.d/**/*.sh
-
-!.scripts/hypr/postrc
-!.scripts/hypr/postrc.d
-!.scripts/hypr/postrc.d/**/*.d
-!.scripts/hypr/postrc.d/**/*.sh
-
-!.scripts/hypr/launcherrc
-!.scripts/hypr/terminalrc
-!.scripts/hypr/scratchpadrc
+!.scripts/hypr/**/*
 
 !.wallpapers
 !.wallpapers/**/*
