@@ -1,0 +1,38 @@
+#!/bin/sh
+
+##
+## Wallpaper script
+##
+
+_main() {
+  local workspace=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -w|--workspace) workspace="$2"; shift 2 ;;
+
+      --workspace=*) workspace="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$workspace" ] && { echo "Workspace missing"; exit 1; }
+
+  ## Get all loaded wallpapers
+  wallpapers=$(hyprctl hyprpaper listloaded)
+
+  index=0
+
+  for wallpaper in $wallpapers; do
+    if [ "$index" = "$workspace" ]; then
+      hyprctl hyprpaper wallpaper ",$wallpaper"
+
+      break
+    fi
+
+    index=$((index + 1))
+  done
+}
+
+_main "$@"
