@@ -1,5 +1,5 @@
 [Unit]
-Description=Wallpaper manager for Wayland
+Description=Wallpaper manager for Hyprland
 Documentation=man:hyprpaper(1)
 PartOf=graphical-session.target
 Requires=hyprland-session.target
