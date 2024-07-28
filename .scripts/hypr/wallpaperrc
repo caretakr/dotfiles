@@ -20,13 +20,16 @@ _main() {
   [ -z "$workspace" ] && { echo "Workspace missing"; exit 1; }
 
   ## Get all loaded wallpapers
-  wallpapers=$(hyprctl hyprpaper listloaded)
+  wallpapers=$(/usr/bin/hyprctl hyprpaper listloaded)
 
-  index=0
+  index=1
 
   for wallpaper in $wallpapers; do
     if [ "$index" = "$workspace" ]; then
-      hyprctl hyprpaper wallpaper ",$wallpaper"
+      /usr/bin/hyprctl \
+        hyprpaper \
+        wallpaper \
+        ",$wallpaper"
 
       break
     fi
