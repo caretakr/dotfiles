@@ -1,3 +1,0 @@
-[Unit]
-Description=Graphical environment
-BindsTo=graphical-session.target

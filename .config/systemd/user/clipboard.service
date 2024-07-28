@@ -1,9 +1,9 @@
 [Unit]
 Description=Clipboard
-Documentation=man:cliphist(1)
+Documentation=https://github.com/sentriz/cliphist
 PartOf=wayland-session.target
-Requires=sway-session.target
-After=sway-session.target
+BindsTo=wayland-session.target
+After=wayland-session.target
 
 [Service]
 Slice=clipboard.slice
@@ -13,4 +13,4 @@ RestartSec=1
 Nice=5
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=wayland-session.target
