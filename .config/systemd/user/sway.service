@@ -1,7 +1,3 @@
-##
-## Sway service
-##
-
 [Unit]
 Description=Sway Wayland compositor
 Documentation=man:sway(5)
