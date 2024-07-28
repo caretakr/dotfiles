@@ -1,0 +1,16 @@
+[Unit]
+Description=Idle manager for Hyprland
+Documentation=man:hypridle(1)
+PartOf=graphical-session.target
+Requires=hyprland-session.target
+After=hyprland-session.target
+
+[Service]
+Slice=hypridle.slice
+ExecStart=/usr/bin/hypridle
+Restart=on-failure
+RestartSec=1
+Nice=5
+
+[Install]
+WantedBy=hyprland-session.target

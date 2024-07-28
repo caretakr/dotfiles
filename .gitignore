@@ -71,7 +71,9 @@
 !.config/systemd/user
 
 !.config/systemd/user/clipboard.*
+!.config/systemd/user/hypridle.*
 !.config/systemd/user/hyprland.*
+!.config/systemd/user/hyprlock.*
 !.config/systemd/user/hyprpaper.*
 !.config/systemd/user/idle.*
 !.config/systemd/user/kanshi.*
