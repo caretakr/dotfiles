@@ -1,0 +1,62 @@
+#!/bin/bash
+
+##
+## Clipboard script
+##
+
+main() {
+	local popup="0"
+
+	while [ "$#" -gt 0 ]; do
+		case "$1" in
+		-p | --popup)
+			popup="1"
+			shift 1
+			;;
+
+		*)
+			echo "Unknown argument: $1"
+			exit 1
+			;;
+		esac
+	done
+
+	_popup() {
+		local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot-clipboard.service' | /usr/bin/cut -d= -f2)
+
+		if [ "$state" = 'failed' ]; then
+			/usr/bin/systemctl --user reset-failed 'foot-clipboard.service' &&
+				state='inactive'
+		fi
+
+		/usr/bin/hyprctl dispatch -- togglespecialworkspace clipboard
+
+		if [ "$state" = 'inactive' ]; then
+			/usr/bin/systemd-run \
+				--user \
+				--slice='foot.slice' \
+				--unit='foot-clipboard' \
+				--nice=15 \
+				-- \
+				/usr/bin/foot \
+				--app-id='foot.clipboard' \
+				--override='font=FiraCode Nerd Font:size=16' \
+				-e "$HOME/.scripts/hypr/clipboardrc"
+		fi
+	}
+
+	if [[ "$popup" == "1" ]]; then
+		_popup || exit 1 && exit 0
+	fi
+
+	local choice="$(/usr/bin/cliphist list | /usr/bin/fzf --prompt=' ' --pointer='' --color='bg+:#1e1e2e' -d $'\t' --with-nth 2)"
+
+	if [ -z "$choice" ]; then
+		echo "No choice made: exiting..." &&
+			exit 1
+	fi
+
+	echo "$choice" | /usr/bin/cliphist decode | /usr/bin/wl-copy
+}
+
+main $@

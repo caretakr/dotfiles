@@ -1,8 +1,8 @@
 [Unit]
 Description=Clipboard
 Documentation=https://github.com/sentriz/cliphist
-PartOf=wayland-session.target
-BindsTo=wayland-session.target
+PartOf=graphical-session.target
+Requires=wayland-session.target
 After=wayland-session.target
 
 [Service]
