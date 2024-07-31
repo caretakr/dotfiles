@@ -11,6 +11,10 @@
 !README.md
 
 !.zshenv
+
+!.zshenv.d
+!.zshenv.d/**/*.zsh
+
 !.zprofile
 !.zshrc
 !.zlogin
