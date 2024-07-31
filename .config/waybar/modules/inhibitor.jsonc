@@ -1,6 +1,6 @@
 {
   "idle_inhibitor": {
-    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"10pt\" rise=\"0.4pt\">{icon}</span>",
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"16pt\">{icon}</span>",
     "format-icons": {
       "activated": "",
       "deactivated": ""

@@ -1,9 +1,7 @@
 {
-  "clock#weekday": {
-    "format": "<span font=\"Noto Sans 12px\" text_transform=\"capitalize\">{:%A}</span>"
-  },
-  "clock#date": {
-    "format": "<span font=\"Noto Sans 12px\">{:%d de %B de %Y}</span>",
+  "clock": {
+    "format": "<span font_family=\"Noto Sans\" font_size=\"12pt\">{:%A  ·  %Od de %B  ·  %OHh%OM}</span>",
+    "interval": 1,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -19,9 +17,5 @@
         "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     }
-  },
-  "clock#time": {
-    "interval": 1,
-    "format": "<span font=\"Noto Sans 12px\">{:%Hh%M}</span>"
   }
 }

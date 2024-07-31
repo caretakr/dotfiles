@@ -94,6 +94,7 @@
 
 !.config/systemd/user/hyprland-session.target.wants/hypridle.service
 !.config/systemd/user/hyprland-session.target.wants/hyprpaper.service
+!.config/systemd/user/hyprland-session.target.wants/waybar@hyprland.service
 
 !.config/systemd/user/hyprlock.service
 !.config/systemd/user/hyprlock.slice
@@ -124,6 +125,7 @@
 
 !.config/systemd/user/sway-session.target.wants/swaybg.service
 !.config/systemd/user/sway-session.target.wants/swayidle.service
+!.config/systemd/user/sway-session.target.wants/waybar@sway.service
 
 !.config/systemd/user/swaybg.service
 !.config/systemd/user/swaybg.slice
@@ -138,7 +140,7 @@
 !.config/systemd/user/udiskie.service
 !.config/systemd/user/udiskie.slice
 
-!.config/systemd/user/waybar.service
+!.config/systemd/user/waybar@.service
 !.config/systemd/user/waybar.slice
 
 !.config/systemd/user/wayland-session.target
@@ -152,18 +154,19 @@
 !.config/systemd/user/wayland-session.target.wants/tmux@terminal.service
 !.config/systemd/user/wayland-session.target.wants/tmux@scratchpad.service
 !.config/systemd/user/wayland-session.target.wants/udiskie.service
-!.config/systemd/user/wayland-session.target.wants/waybar.service
 !.config/systemd/user/wayland-session.target.wants/wlsunset.service
 
 !.config/systemd/user/wlsunset.service
 !.config/systemd/user/wlsunset.slice
 
 !.config/waybar
-!.config/waybar/config.json
+!.config/waybar/hyprland.jsonc
+!.config/waybar/sway.jsonc
 !.config/waybar/style.css
-!.config/waybar/config.d
-!.config/waybar/config.d/**
-!.config/waybar/config.d/**/*.json
+
+!.config/waybar/modules
+!.config/waybar/modules/**
+!.config/waybar/modules/**/*.jsonc
 
 !.config/wlsunset
 !.config/wlsunset/service.conf
