@@ -4,11 +4,13 @@
 ## Post scripts
 ##
 
-postrc_directory="$HOME/.scripts/hypr/postrc.d"
+postrc_directory="${HOME}/.scripts/hypr/postrc.d"
 
 if [ -d "$postrc_directory" ]; then
 	for file in "$postrc_directory"/?*.sh; do
-		[ -x "$file" ] && . "$file"
+		[ -f "$file" ] \
+      && [ -x "$file" ] \
+      && . "$file"
 	done
 
 	unset file

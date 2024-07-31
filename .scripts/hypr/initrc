@@ -4,11 +4,13 @@
 ## Init scripts
 ##
 
-initrc_directory="$HOME/.scripts/hypr/initrc.d"
+initrc_directory="${HOME}/.scripts/hypr/initrc.d"
 
 if [ -d "$initrc_directory" ]; then
 	for file in "$initrc_directory"/?*.sh; do
-		[ -x "$file" ] && . "$file"
+		[ -f "$file" ] \
+      && [ -x "$file" ] \
+      && . "$file"
 	done
 
 	unset file

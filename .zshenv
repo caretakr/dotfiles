@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 ##
 ## ZSH environment
 ##
@@ -10,7 +8,8 @@ zshenv_directory="${HOME}/.zshenv.d"
 
 if [[ -d "$zshenv_directory" ]]; then
 	for file in "$zshenv_directory"/?*.zsh; do
-		[[ -x "$file" ]] && . "$file"
+		[[ -f "$file" && -r "$file" ]] \
+      && source "$file"
 	done
 
 	unset file
