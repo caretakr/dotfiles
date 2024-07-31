@@ -11,9 +11,9 @@
     "~/.config/waybar/modules/pulseaudio.jsonc",
     "~/.config/waybar/modules/temperature.jsonc",
     "~/.config/waybar/modules/tray.jsonc",
-    "~/.config/waybar/modules/wireplumber.jsonc"
+    "~/.config/waybar/modules/wireplumber.jsonc",
   ],
-  "name": "top",
+  "name": "hyprland",
   "position": "top",
   "height": 96,
   "modules-left": ["hyprland/workspaces"],
@@ -26,6 +26,6 @@
     "pulseaudio#input",
     "network#ethernet",
     "network#wifi",
-    "battery"
-  ]
+    "battery",
+  ],
 }
