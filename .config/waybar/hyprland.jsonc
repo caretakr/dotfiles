@@ -15,7 +15,7 @@
   ],
   "name": "hyprland",
   "position": "top",
-  "height": 96,
+  "height": 24,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": [
