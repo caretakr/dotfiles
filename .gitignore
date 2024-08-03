@@ -90,6 +90,10 @@
 !.config/systemd/user/default.target.wants
 
 !.config/systemd/user/default.target.wants/ssh-agent.service
+!.config/systemd/user/default.target.wants/deluge.service
+
+!.config/systemd/user/deluge.service
+!.config/systemd/user/deluge.slice
 
 !.config/systemd/user/hypridle.service
 !.config/systemd/user/hypridle.slice
