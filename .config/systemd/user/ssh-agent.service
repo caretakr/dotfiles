@@ -4,7 +4,7 @@ Documentation=man:ssh-agent(1) man:ssh-add(1) man:ssh(1)
 
 [Service]
 Slice=ssh-agent.slice
-Environment=SSH_AUTH_SOCK=%t/user/%U/ssh-agent.socket
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
 ExecStart=/usr/bin/ssh-agent -D -a ${SSH_AUTH_SOCK}
 PassEnvironment=SSH_AGENT_PID
 SuccessExitStatus=2
