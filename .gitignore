@@ -87,6 +87,10 @@
 !.config/systemd/user/clipboard.service
 !.config/systemd/user/clipboard.slice
 
+!.config/systemd/user/default.target.wants
+
+!.config/systemd/user/default.target.wants/ssh-agent.service
+
 !.config/systemd/user/hypridle.service
 !.config/systemd/user/hypridle.slice
 
@@ -120,6 +124,9 @@
 
 !.config/systemd/user/solaar.service
 !.config/systemd/user/solaar.slice
+
+!.config/systemd/user/ssh-agent.service
+!.config/systemd/user/ssh-agent.slice
 
 !.config/systemd/user/sway.service
 !.config/systemd/user/sway.slice

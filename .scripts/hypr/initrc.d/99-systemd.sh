@@ -42,6 +42,7 @@ if command -v /usr/bin/dbus-update-activation-environment >/dev/null 2>&1; then
 		QT_WAYLAND_DISABLE_WINDOWDECORATION \
 		RSYNC_PROXY rsync_proxy \
     SDL_VIDEODRIVER \
+    SSH_AGENT_PID \
 		SSH_AUTH_SOCK \
 		TZ \
     VISUAL \
