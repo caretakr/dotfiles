@@ -17,7 +17,7 @@
   "position": "top",
   "height": 24,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock"],
+  "modules-center": ["custom/clock"],
   "modules-right": [
     "tray",
     "backlight",
