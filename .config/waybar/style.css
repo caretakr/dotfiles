@@ -124,9 +124,9 @@ window#waybar #pulseaudio.input:not(.source-muted),
 window#waybar #temperature.critical {
   color: rgb(230, 69, 83);
 
-  /* animation-name: alert; */
-  /* animation-duration: 0.5s; */
-  /* animation-timing-function: linear; */
-  /* animation-iteration-count: infinite; */
-  /* animation-direction: alternate; */
+  animation-name: alert;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
