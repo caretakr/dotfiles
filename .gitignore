@@ -38,11 +38,14 @@
 !.config/foot
 !.config/foot/foot.ini
 
-!.config/gtk-4.0
-!.config/gtk-4.0/settings.ini
+!.config/gtk-2.0
+!.config/gtk-2.0/settings.ini
 
 !.config/gtk-3.0
 !.config/gtk-3.0/settings.ini
+
+!.config/gtk-4.0
+!.config/gtk-4.0/settings.ini
 
 !.config/hypr
 
