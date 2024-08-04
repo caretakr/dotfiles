@@ -3,10 +3,10 @@
 ##
 
 profile {
-  output "Sharp Corporation 0x14F9 Unknown" mode 1920x1200@59.950Hz scale 1.5 position 0,0 enable
+  output "Sharp Corporation 0x14F9 Unknown" mode 1920x1200@59.950Hz scale 1.333 position 0,0 enable
 }
 
 profile {
-  output "Sharp Corporation 0x14F9 Unknown" mode 1920x1200@59.950Hz scale 1.5 position 0,0 disable
+  output "Sharp Corporation 0x14F9 Unknown" mode 1920x1200@59.950Hz scale 1.333 position 0,0 disable
   output "Samsung Electric Company LC24RG50 HX5R302238" mode 1920x1080@120.000Hz scale 1.25 position 0,0 enable
 }
