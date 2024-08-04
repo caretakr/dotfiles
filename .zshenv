@@ -100,6 +100,12 @@ export no_proxy="$NO_PROXY"
 
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
+##
+## X variables
+##
+
+export XCURSOR_PATH="${XCURSOR_PATH}:${XDG_DATA_HOME}/icons"
+
 ## Ensure that a non-login, non-interactive shell has a environment
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
   source ".zprofile"
