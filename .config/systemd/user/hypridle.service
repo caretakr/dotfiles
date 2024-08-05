@@ -1,6 +1,6 @@
 [Unit]
 Description=Idle manager for Hyprland
-Documentation=man:hypridle(1)
+Documentation=https://github.com/hyprwm/hypridle
 PartOf=graphical-session.target
 Requires=hyprland-session.target
 After=hyprland-session.target

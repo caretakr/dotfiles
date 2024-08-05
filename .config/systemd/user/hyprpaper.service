@@ -1,6 +1,6 @@
 [Unit]
 Description=Wallpaper manager for Hyprland
-Documentation=man:hyprpaper(1)
+Documentation=https://github.com/hyprwm/hyprpaper
 PartOf=graphical-session.target
 Requires=hyprland-session.target
 After=hyprland-session.target
