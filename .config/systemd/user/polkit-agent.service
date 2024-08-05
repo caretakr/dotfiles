@@ -1,6 +1,6 @@
 [Unit]
 Description=Polkit agent
-Documentation=man:polkit(1)
+Documentation=man:polkit(8)
 PartOf=graphical-session.target
 Requires=wayland-session.target
 After=wayland-session.target

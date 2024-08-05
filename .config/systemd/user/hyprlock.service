@@ -1,6 +1,6 @@
 [Unit]
 Description=Lock screen for Hyprland
-Documentation=Documentation=https://github.com/hyprwm/hyprlock
+Documentation=https://github.com/hyprwm/hyprlock
 PartOf=graphical-session.target
 Requires=hyprland-session.target
 After=hyprland-session.target

@@ -1,6 +1,6 @@
 [Unit]
 Description=solaar
-Documentation=Documentation=https://github.com/pwr-Solaar/Solaar
+Documentation=https://github.com/pwr-Solaar/Solaar
 PartOf=graphical-session.target
 Requires=wayland-session.target
 After=wayland-session.target

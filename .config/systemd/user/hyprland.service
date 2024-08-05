@@ -1,6 +1,6 @@
 [Unit]
 Description=Hyprland Wayland compositor
-Documentation=Documentation=https://github.com/hyprwm/Hyprland
+Documentation=https://github.com/hyprwm/Hyprland
 BindsTo=graphical-session.target
 Wants=graphical-session-pre.target
 After=graphical-session-pre.target
