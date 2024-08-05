@@ -40,7 +40,7 @@ main() {
 				-- \
 				/usr/bin/foot \
 				--app-id='foot.clipboard' \
-				--override='font=FiraCode Nerd Font:size=16' \
+				--override='font=FiraCode Nerd Font:size=24' \
 				-e "$HOME/.scripts/hypr/clipboardrc"
 		fi
 	}
