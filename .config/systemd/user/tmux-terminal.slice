@@ -2,4 +2,5 @@
 ## Tmux (terminal) slice
 ##
 
+[Service]
 CPUWeight=idle
