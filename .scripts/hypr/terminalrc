@@ -19,9 +19,9 @@ main() {
       /usr/bin/tmux \
         -S /run/user/${UID}/tmux-terminal \
         has-session \
-        -t 0 2>/dev/null \
+        -t terminal 2>/dev/null \
     ; then
-      command="attach-session -t 0"
+      command="attach-session -t terminal"
     fi
 
 		/usr/bin/systemd-run \

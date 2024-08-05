@@ -7,8 +7,8 @@ After=wayland-session.target
 [Service]
 Slice=tmux-%i.slice
 Type=forking
-ExecStart=/usr/bin/tmux -S /run/user/%U/tmux-%i start-server
-ExecStop=/usr/bin/tmux -S /run/user/%U/tmux-%i kill-server
+ExecStart=/usr/bin/tmuxp load -d -S %t/tmux-%i %E/tmuxp/%i.yaml
+ExecStop=/usr/bin/tmux -S %t tmux-%i kill-server
 Nice=10
 
 [Install]

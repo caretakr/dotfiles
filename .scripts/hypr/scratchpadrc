@@ -21,9 +21,9 @@ main() {
       /usr/bin/tmux \
         -S /run/user/${UID}/tmux-scratchpad \
         has-session \
-        -t 0 2>/dev/null \
+        -t scratchpad 2>/dev/null \
     ; then
-      command="attach-session -t 0"
+      command="attach-session -t scratchpad"
     fi
 
 		/usr/bin/systemd-run \
