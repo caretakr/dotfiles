@@ -28,10 +28,10 @@ window#waybar {
 }
 
 window#waybar.hyprland > box {
-  margin-top: 14px;
+  margin-top: 13px;
   margin-right: 24px;
   margin-left: 24px;
-  margin-bottom: 14px;
+  margin-bottom: 13px;
 }
 
 window#waybar widget button {
