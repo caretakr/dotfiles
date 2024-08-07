@@ -1,6 +1,6 @@
 {
   "custom/clock": {
-    "format": "<span font_family=\"Noto Sans\" font_size=\"12pt\">{}</span>",
+    "format": "<span font_family=\"Noto Sans\" font_size=\"10pt\">{}</span>",
     "exec": "date +'%A  •  %d de %B  •  %Hh%M'",
     "interval": 1,
   },

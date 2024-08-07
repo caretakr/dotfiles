@@ -1,18 +1,18 @@
 {
   "network#ethernet": {
     "interface": "en*",
-    "format-ethernet": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰈁</span>",
-    "format-linked": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰈂</span>",
-    "format-disconnected": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰈂</span>",
-    "format-disabled": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰈂</span>",
-    "tooltip-format": "<span font=\"Noto Sans 12px\">Interface: <b>{ifname}</b>\nAddress: <b>{ipaddr}/{cidr}</b></span>"
+    "format-ethernet": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰈁</span>",
+    "format-linked": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰈂</span>",
+    "format-disconnected": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰈂</span>",
+    "format-disabled": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰈂</span>",
+    "tooltip-format": "<span font=\"Noto Sans 10pt\">Interface: <b>{ifname}</b>\nAddress: <b>{ipaddr}/{cidr}</b></span>",
   },
   "network#wifi": {
     "interface": "wl*",
-    "format-wifi": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰖩</span>",
-    "format-linked": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰤮</span>",
-    "format-disconnected": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰤮</span>",
-    "format-disabled": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"14pt\">󰤮</span>",
-    "tooltip-format": "<span font=\"Noto Sans 12px\">SSID: <b>{essid}</b>\nSignal: <b>{signalStrength}<span font=\"Noto Sans 8px\" rise=\"2.4pt\">%</span></b> / <b>{signaldBm}<span font=\"Noto Sans 8px\" rise=\"2.4pt\">dBm</span></b>\nFrequency: <b>{frequency}</b>\n\nInterface: <b>{ifname}</b>\nAddress: <b>{ipaddr}/{cidr}</b></span>"
-  }
+    "format-wifi": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰖩</span>",
+    "format-linked": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰤮</span>",
+    "format-disconnected": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰤮</span>",
+    "format-disabled": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰤮</span>",
+    "tooltip-format": "<span font=\"Noto Sans 10pt\">SSID: <b>{essid}</b>\nSignal: <b>{signalStrength}<span font=\"Noto Sans 8pt\" rise=\"2.4pt\">%</span></b> / <b>{signaldBm}<span font=\"Noto Sans 8pt\" rise=\"2.4pt\">dBm</span></b>\nFrequency: <b>{frequency}</b>\n\nInterface: <b>{ifname}</b>\nAddress: <b>{ipaddr}/{cidr}</b></span>",
+  },
 }
