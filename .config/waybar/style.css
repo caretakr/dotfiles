@@ -54,8 +54,6 @@ window#waybar.hyprland box.modules-right > widget > #tray {
 
 window#waybar.hyprland box.modules-right > widget > #wireplumber {
   margin-left: 4px;
-  padding-right: 8px;
-
   border-radius: 4px 0 0 4px;
 }
 
