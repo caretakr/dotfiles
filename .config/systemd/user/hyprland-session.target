@@ -1,0 +1,5 @@
+[Unit]
+Description=Current Hyprland user session
+Documentation=man:systemd.special(7)
+Requires=graphical-session.target
+BindsTo=wayland-session.target

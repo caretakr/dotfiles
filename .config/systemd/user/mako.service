@@ -1,9 +1,9 @@
 [Unit]
 Description=mako notification daemon
 Documentation=man:mako(1)
-PartOf=wayland-session.target
-Requires=sway-session.target
-After=sway-session.target
+PartOf=graphical-session.target
+Requires=wayland-session.target
+After=wayland-session.target
 
 [Service]
 Type=dbus
@@ -13,4 +13,4 @@ ExecStart=/usr/bin/mako
 Nice=5
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=wayland-session.target

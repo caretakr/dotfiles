@@ -1,0 +1,67 @@
+#!/bin/bash
+
+##
+## Print script
+##
+
+main() {
+  local input=""
+  local output=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -i|--input) input="$2"; shift 2 ;;
+      -o|--output) output="$2"; shift 2 ;;
+
+      --input=*) input="${1#*=}"; shift 1 ;;
+      --output=*) output="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$input" ] && { echo "Input missing"; exit 1; }
+  [ -z "$output" ] && { echo "Output missing"; exit 1; }
+
+  _screenshot() {
+    local mode="$1"
+    local destination="$2"
+    local area=""
+
+    case "$mode" in
+      screen)
+        /usr/bin/grim "$destination"
+
+        ;;
+      window)
+        area=$(/usr/bin/swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)
+
+        /usr/bin/grim -g "$area" "$destination"
+
+        ;;
+      area)
+        /usr/bin/grim -g "$(slurp)" "$destination"
+
+        ;;
+    esac
+  }
+
+  case "$output" in
+    clipboard)
+      _screenshot "$input" "-" | wl-copy
+
+      /usr/bin/notify-send "Screenshot taken" "A screenshot was taken and copied to clipboard"
+
+      ;;
+    file)
+      local file="${XDG_PICTURES_DIR}/Screenshot $(date +"%Y-%m-%dT%H:%M:%S").png"
+
+      _screenshot "$input" "$file"
+
+      /usr/bin/notify-send "Screenshot taken" "A screenshot was taken and placed at $file"
+
+      ;;
+  esac
+}
+
+main "$@"

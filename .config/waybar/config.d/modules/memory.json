@@ -1,6 +1,0 @@
-{
-  "memory": {
-    "interval": 5,
-    "format": "<span font_family=\"Symbols Nerd Font\" font_size=\"10pt\" rise=\"0.4pt\">󰍛</span><span font=\"Noto Sans 12px\">  {used:0.1f}<span font=\"Noto Sans 8px\" rise=\"2.5pt\">G</span> / {swapUsed:0.1f}<span font=\"Noto Sans 8px\" rise=\"2.5pt\">G</span></span>"
-  }
-}
