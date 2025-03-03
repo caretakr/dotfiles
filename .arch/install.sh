@@ -23,7 +23,7 @@ _error() {
 }
 
 _main() {
-  for script in $(dirname "$0")/../src/install.d/?*.sh; do
+  for script in $(dirname "$0")/install.d/?*.sh; do
     if [ -f "$script" ]; then
       source "$script"
 
