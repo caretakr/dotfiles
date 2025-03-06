@@ -9,9 +9,7 @@ _main() {
     git clone https://aur.archlinux.org/yay.git ~/.yay \
       && cd ~/.yay \
       && makepkg -si --needed --noconfirm \
-      && yay -Y --gendb \
-      && yay -Syu --devel \
-      && yay -Y --devel --save
+      && yay --gendb
   ) || exit
 
   rm -rf ~/.yay
