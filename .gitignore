@@ -10,10 +10,6 @@
 
 !README.md
 
-!.arch
-!.arch/install.d
-!.arch/install.d/35-packages.sh
-
 !.zshenv
 !.zprofile
 !.zshrc
