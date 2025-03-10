@@ -2,12 +2,7 @@
 ## ZSH startup
 ##
 
-_HTTP_PROXY="$HTTP_PROXY"
-_SOCKS_PROXY="$SOCKS_PROXY"
-
-_SOCKS_VERSION="$SOCKS_VERSION"
-
-_NO_PROXY="$NO_PROXY"
+autoload -U add-zsh-hook
 
 load() {
   [[ -r "$1" ]] && {
@@ -15,46 +10,30 @@ load() {
   }
 }
 
+load_nvmrc() {
+  local nvmrc_path
+
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install >/dev/null 2>&1
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use >/dev/null 2>&1
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    nvm use system >/dev/null 2>&1
+  fi
+}
+
 mkdirp() {
   [[ -d "$1" ]] || {
     mkdir -p "$1"
   }
-}
-
-proxy_off() {
-  unset HTTP_PROXY
-  unset SOCKS_PROXY
-
-  unset SOCKS_VERSION
-
-  unset http_proxy
-  unset HTTPS_PROXY
-  unset https_proxy
-  unset FTP_PROXY
-  unset ftp_proxy
-  unset RSYNC_PROXY
-  unset rsync_proxy
-
-  unset NO_PROXY
-  unset no_proxy
-}
-
-proxy_on() {
-  export HTTP_PROXY="$_HTTP_PROXY"
-  export SOCKS_PROXY="$_SOCKS_PROXY"
-
-  export SOCKS_VERSION="$_SOCKS_VERSION"
-
-  export http_proxy="$HTTP_PROXY"
-  export HTTPS_PROXY="$HTTP_PROXY"
-  export https_proxy="$HTTPS_PROXY"
-  export FTP_PROXY="$HTTP_PROXY"
-  export ftp_proxy="$FTP_PROXY"
-  export RSYNC_PROXY="$HTTP_PROXY"
-  export rsync_proxy="$rsync_proxy"
-
-  export NO_PROXY="$_NO_PROXY"
-  export no_proxy="$NO_PROXY"
 }
 
 ## Load Powerlevel10k instant prompt early
@@ -99,12 +78,17 @@ setopt HIST_IGNORE_DUPS
 ##
 
 ## Set v(i(m)) aliases
-alias vim="nvim"
 alias vi="vim"
 alias v="vi"
 
 ## Set trash alias
 alias rm="trash"
+
+##
+## Exports
+##
+
+export GPG_TTY=$(tty)
 
 ##
 ## Plugins
@@ -120,7 +104,11 @@ load /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme \
   && load "$HOME/.p10k.zsh"
 
 ## Load NVM plugin
-load /usr/share/nvm/init-nvm.sh
+load /usr/share/nvm/init-nvm.sh --no-use
+
+## Add hook to load .nvmrc when changind directories
+add-zsh-hook chpwd load_nvmrc \
+  ; load_nvmrc
 
 ## Load autosuggestions plugin
 load /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
