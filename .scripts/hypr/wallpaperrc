@@ -17,25 +17,10 @@ _main() {
     esac
   done
 
-  [ -z "$workspace" ] && { echo "Workspace missing"; exit 1; }
+  current="$(hyprctl hyprpaper listloaded)"
+  next=$(find "$HOME/.wallpapers" -type f ! -name "$(basename "$current")" | shuf -n 1)
 
-  ## Get all loaded wallpapers
-  wallpapers=$(/usr/bin/hyprctl hyprpaper listloaded)
-
-  index=1
-
-  for wallpaper in $wallpapers; do
-    if [ "$index" = "$workspace" ]; then
-      /usr/bin/hyprctl \
-        hyprpaper \
-        wallpaper \
-        ",$wallpaper"
-
-      break
-    fi
-
-    index=$((index + 1))
-  done
+  hyprctl hyprpaper reload ,"$next"
 }
 
 _main "$@"
