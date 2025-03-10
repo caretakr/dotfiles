@@ -1,0 +1,37 @@
+[global]
+
+## Notifications
+notification_limit = 4
+
+## Font
+font=Noto Sans 10
+
+## Align
+origin=top-right
+offset=36x20
+
+## Spacing
+padding=16
+horizontal_padding=16
+
+## Dimension
+width=256
+height=256
+
+## Colors
+background="#303446"
+foreground="#8caaee"
+
+## Borders
+frame_width=0
+corner_radius=4
+
+## Separators
+separator_color="#30344600"
+separator_height=4
+
+[urgency_critical]
+
+## Colors
+background="#ed8796"
+foreground="#303446"

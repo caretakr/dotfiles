@@ -62,9 +62,6 @@
 !.config/kanshi
 !.config/kanshi/config
 
-!.config/mako
-!.config/mako/config
-
 !.config/sway
 !.config/sway/config
 
@@ -95,6 +92,9 @@
 !.config/systemd/user/deluge.service
 !.config/systemd/user/deluge.slice
 
+!.config/systemd/user/dunst.service
+!.config/systemd/user/dunst.slice
+
 !.config/systemd/user/hypridle.service
 !.config/systemd/user/hypridle.slice
 
@@ -119,9 +119,6 @@
 
 !.config/systemd/user/keepassxc.service
 !.config/systemd/user/keepassxc.slice
-
-!.config/systemd/user/mako.service
-!.config/systemd/user/mako.slice
 
 !.config/systemd/user/polkit-agent.service
 !.config/systemd/user/polkit-agent.slice
@@ -162,9 +159,9 @@
 !.config/systemd/user/wayland-session.target.wants
 
 !.config/systemd/user/wayland-session.target.wants/clipboard.service
+!.config/systemd/user/wayland-session.target.wants/dunst.service
 !.config/systemd/user/wayland-session.target.wants/kanshi.service
 !.config/systemd/user/wayland-session.target.wants/keepassxc.service
-!.config/systemd/user/wayland-session.target.wants/mako.service
 !.config/systemd/user/wayland-session.target.wants/polkit-agent.service
 !.config/systemd/user/wayland-session.target.wants/tmux@terminal.service
 !.config/systemd/user/wayland-session.target.wants/tmux@scratchpad.service
