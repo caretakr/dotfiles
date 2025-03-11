@@ -1,0 +1,26 @@
+#!/bin/sh
+
+##
+## Wallpaper script
+##
+
+_main() {
+  local workspace=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -w|--workspace) workspace="$2"; shift 2 ;;
+
+      --workspace=*) workspace="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  current="$(hyprctl hyprpaper listloaded)"
+  next=$(find "$HOME/.wallpapers" -type f ! -name "$(basename "$current")" | shuf -n 1)
+
+  hyprctl hyprpaper reload ,"$next"
+}
+
+_main "$@"

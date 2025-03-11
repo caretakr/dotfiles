@@ -1,0 +1,6 @@
+{
+  "cpu": {
+    "interval": 5,
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">󰻠</span> <span font_family=\"Noto Sans\" font_size=\"10pt\">{usage}<span font_family=\"Noto Sans\" font_size=\"6pt\" rise=\"4pt\">%</span></span>",
+  },
+}

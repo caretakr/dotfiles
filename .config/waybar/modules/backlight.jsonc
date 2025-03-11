@@ -1,0 +1,7 @@
+{
+  "backlight": {
+    "interval": 60,
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">{icon}</span> <span font_family=\"Noto Sans\" font_size=\"10pt\">{percent}<span font_family=\"Noto Sans\" font_size=\"6pt\" rise=\"4pt\">%</span></span>",
+    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+  },
+}

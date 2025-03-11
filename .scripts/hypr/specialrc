@@ -1,0 +1,113 @@
+#!/bin/bash
+
+##
+## Special script
+##
+
+main() {
+  local input=""
+  local output=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -a|--action) action="$2"; shift 2 ;;
+      -t|--type) type="$2"; shift 2 ;;
+
+      --action=*) action="${1#*=}"; shift 1 ;;
+      --type=*) type="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$action" ] && { echo "Action missing"; exit 1; }
+  [ -z "$type" ] && { echo "Type missing"; exit 1; }
+
+  _change_volume() {
+    local value="$1"
+
+    /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ "$value" \
+      && /usr/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ \
+      | /usr/bin/awk '/Volume:/ { print $2 }' \
+      | /usr/bin/awk '{print int($1*100)}' \
+      > $XDG_RUNTIME_DIR/wob.sock
+  }
+
+  _change_brightness() {
+    local value="$1"
+
+    /usr/bin/brightnessctl set "$value" \
+      | /usr/bin/sed -En 's/.*\(([0-9]+)%\).*/\1/p' \
+      > $XDG_RUNTIME_DIR/wob.sock
+  }
+
+  case "$type" in
+    volume)
+      case "$action" in
+        raise)
+          _change_volume "5%+"
+
+          ;;
+        lower)
+          _change_volume "5%-"
+
+          ;;
+        toggle)
+          /usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+          ;;
+      esac
+
+      ;;
+    mic)
+      case "$action" in
+        open)
+          /usr/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
+
+          ;;
+        close)
+          /usr/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
+
+          ;;
+        toggle)
+          /usr/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+          ;;
+      esac
+
+      ;;
+
+    brightness)
+      case "$action" in
+        raise)
+          _change_brightness "5%+"
+
+          ;;
+        lower)
+          _change_brightness "5%-"
+
+          ;;
+      esac
+
+      ;;
+    media)
+      case "$action" in
+        play)
+          /usr/bin/playerctl play-pause
+
+          ;;
+        next)
+          /usr/bin/playerctl next
+
+          ;;
+        previous)
+          /usr/bin/playerctl previous
+
+          ;;
+      esac
+
+      ;;
+  esac
+}
+
+main "$@"
