@@ -19,7 +19,7 @@ export PAGER="less"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
-export XDG_SCRIPT_HOME="${HOME}/.script"
+export XDG_SCRIPTS_HOME="${HOME}/.scripts"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
 export XDG_DESKTOP_DIR="${HOME}/Desktop"

@@ -59,7 +59,7 @@ if command -v /usr/bin/dbus-update-activation-environment >/dev/null 2>&1; then
 		XDG_MUSIC_DIR \
 		XDG_PICTURES_DIR \
 		XDG_PUBLICSHARE_DIR \
-    XDG_SCRIPT_HOME \
+    XDG_SCRIPTS_HOME \
 		XDG_SEAT \
 		XDG_SESSION_CLASS \
 		XDG_SESSION_DESKTOP \

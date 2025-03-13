@@ -2,8 +2,8 @@
 Description=Waybar
 Documentation=man:waybar(5)
 PartOf=graphical-session.target
-Requires=wayland-session.target
-After=wayland-session.target
+Requires=%i-session.target
+After=%i-session.target
 
 [Service]
 Slice=waybar.slice
