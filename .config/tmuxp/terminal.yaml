@@ -9,4 +9,5 @@ windows:
           - cmd: btop
             sleep_before: 1
             sleep_after: 1
-  -
+  - panes:
+      -
