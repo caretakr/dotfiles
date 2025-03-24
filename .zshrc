@@ -77,11 +77,10 @@ setopt HIST_IGNORE_DUPS
 ## Aliases
 ##
 
-## Set v(i(m)) aliases
-alias vi="vim"
-alias v="vi"
+## Dotfiles
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
-## Set trash alias
+## Trash
 alias rm="trash"
 
 ##
