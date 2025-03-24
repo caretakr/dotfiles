@@ -178,6 +178,9 @@
 !.config/systemd/user/wlsunset.service
 !.config/systemd/user/wlsunset.slice
 
+!.config/tmuxp
+!.config/tmuxp/**/*
+
 !.config/waybar
 !.config/waybar/hyprland.jsonc
 !.config/waybar/sway.jsonc
