@@ -109,6 +109,7 @@
 
 !.config/systemd/user/hyprland-session.target.wants/hypridle.service
 !.config/systemd/user/hyprland-session.target.wants/hyprpaper.service
+!.config/systemd/user/hyprland-session.target.wants/hyprsocket.service
 !.config/systemd/user/hyprland-session.target.wants/waybar@hyprland.service
 
 !.config/systemd/user/hyprlock.service
