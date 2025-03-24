@@ -42,7 +42,6 @@ export ANDROID_HOME="${HOME}/.android"
 export CARGO_HOME="${HOME}/.cargo"
 export GOPATH="$HOME/.go"
 export LUAROCKS_HOME="${HOME}/.luarocks"
-export NPM_HOME="${HOME}/.npm"
 export PNPM_HOME="${HOME}/.pnpm"
 
 export LUA_PATH="/usr/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?/init.lua;/usr/local/lib/lua/5.4/?.lua;/usr/local/lib/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;${LUAROCKS_HOME}/share/lua/5.4/?.lua;${LUAROCKS_HOME}/share/lua/5.4/?/init.lua"
@@ -57,7 +56,6 @@ export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:${CARGO_HOME}/bin"
 export PATH="${PATH}:${GOPATH}/bin"
 export PATH="${PATH}:${LUAROCKS_HOME}/bin"
-export PATH="${PATH}:${NPM_HOME}/bin"
 export PATH="${PATH}:${PNPM_HOME}/bin"
 
 ##
