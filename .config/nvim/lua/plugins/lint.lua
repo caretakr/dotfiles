@@ -27,6 +27,38 @@ return {
         ["yaml.ansible"] = { "ansible_lint" },
         ["*"] = { "editorconfig-checker" },
       },
+      linters = {
+        stylelint = {
+          enabled = function(ctx)
+            local files = {
+              ".stylelintrc.js",
+              ".stylelintrc.cjs",
+              ".stylelintrc.yaml",
+              ".stylelintrc.yml",
+              ".stylelintrc.json",
+              "package.json",
+            }
+
+            for _, file in ipairs(files) do
+              local found = vim.fs.find({ file }, { path = ctx.dirname, upward = true })[1]
+
+              if found and #found > 0 then
+                if file == "package.json" then
+                  local content = vim.fn.json_decode(vim.fn.readfile(found))
+
+                  if content.stylelintConfig then
+                    return true
+                  end
+                else
+                  return true
+                end
+              end
+            end
+
+            return false
+          end,
+        },
+      },
     },
     config = function(_, opts)
       local lint = require("lint")

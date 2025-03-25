@@ -1,5 +1,5 @@
 --
--- Automatic commands config
+-- Autocmds config
 --
 
 local function augroup(name)
