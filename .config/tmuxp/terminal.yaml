@@ -5,9 +5,4 @@
 session_name: "terminal"
 windows:
   - panes:
-      - shell_command:
-          - cmd: btop
-            sleep_before: 1
-            sleep_after: 1
-  - panes:
       -
