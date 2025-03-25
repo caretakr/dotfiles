@@ -1,13 +1,8 @@
 --
 -- Filetypes config
 --
---
-vim.filetype.add({
-  pattern = {
-    ["*.component.html"] = "html.angular",
-  },
-})
 
+-- GitHub Actions
 vim.filetype.add({
   pattern = {
     [".*/.github/workflows/.*%.ya?ml"] = "yaml.action",
@@ -15,6 +10,7 @@ vim.filetype.add({
   },
 })
 
+-- Ansible playbooks
 vim.filetype.add({
   pattern = {
     [".*/defaults/.*%.ya?ml"] = "yaml.ansible",
