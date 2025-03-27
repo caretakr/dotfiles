@@ -1,0 +1,11 @@
+[Unit]
+Description=Sunset update for Hyprland
+Requires=hyprsunset-update.service
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Persistent=true
+Unit=hyprsunset-update.service
+
+[Install]
+WantedBy=timers.target

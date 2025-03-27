@@ -6,6 +6,7 @@
 
 *
 
+!.editorconfig
 !.gitignore
 
 !README.md
@@ -55,6 +56,7 @@
 
 !.config/hypr/hyprlock.conf
 !.config/hypr/hyprpaper.conf
+!.config/hypr/hyprsunset.conf
 
 !.config/hypr/hyprland.d
 !.config/hypr/hyprland.d/**/*.conf
@@ -110,6 +112,7 @@
 !.config/systemd/user/hyprland-session.target.wants/hypridle.service
 !.config/systemd/user/hyprland-session.target.wants/hyprpaper.service
 !.config/systemd/user/hyprland-session.target.wants/hyprsocket.service
+!.config/systemd/user/hyprland-session.target.wants/hyprsunset.service
 !.config/systemd/user/hyprland-session.target.wants/waybar@hyprland.service
 
 !.config/systemd/user/hyprlock.service
@@ -120,6 +123,13 @@
 
 !.config/systemd/user/hyprsocket.service
 !.config/systemd/user/hyprsocket.slice
+
+!.config/systemd/user/hyprsunset.service
+!.config/systemd/user/hyprsunset.slice
+
+!.config/systemd/user/hyprsunset-update.service
+!.config/systemd/user/hyprsunset-update.slice
+!.config/systemd/user/hyprsunset-update.timer
 
 !.config/systemd/user/kanshi.service
 !.config/systemd/user/kanshi.slice
@@ -151,6 +161,11 @@
 
 !.config/systemd/user/swayidle.service
 !.config/systemd/user/swayidle.slice
+
+!.config/systemd/user/timers.target
+!.config/systemd/user/timers.target.wants
+
+!.config/systemd/user/timers.target.wants/hyprsunset-update.timer
 
 !.config/systemd/user/tmux@.service
 
