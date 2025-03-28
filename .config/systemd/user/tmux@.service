@@ -1,15 +1,15 @@
 [Unit]
 Description=Tmux session %I
-PartOf=wayland-session.target
-Requires=sway-session.target
-After=sway-session.target
+PartOf=graphical-session.target
+Requires=wayland-session.target
+After=wayland-session.target
 
 [Service]
-Slice=%i.slice
+Slice=tmux-%i.slice
 Type=forking
-ExecStart=/usr/bin/tmux new-session -s %i -d
-ExecStop=/usr/bin/tmux kill-session -t %i
+ExecStart=/usr/bin/tmuxp load -d -S %t/tmux-%i %E/tmuxp/%i.yaml
+ExecStop=/usr/bin/tmux -S %t tmux-%i kill-server
 Nice=10
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=wayland-session.target

@@ -1,0 +1,12 @@
+{
+  "pulseaudio#output": {
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">{icon}</span> <span font_family=\"Noto Sans\" font_size=\"10pt\">{volume}<span font_family=\"Noto Sans\" font_size=\"6pt\" rise=\"4pt\">%</span></span>",
+    "format-muted": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\"></span> <span font_family=\"Noto Sans\" font_size=\"10pt\">{volume}<span font_family=\"Noto Sans\" font_size=\"6pt\" rise=\"4pt\">%</span></span>",
+    "format-icons": ["", "", ""],
+  },
+  "pulseaudio#input": {
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">{format_source}</span>",
+    "format-source": "",
+    "format-source-muted": "",
+  },
+}

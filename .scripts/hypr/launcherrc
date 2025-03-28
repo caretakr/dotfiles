@@ -1,0 +1,154 @@
+#!/bin/zsh
+
+##
+## Launcher script
+##
+
+main() {
+  local popup="0"
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -p|--popup) popup="1"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  _items() {
+    declare -A apps
+
+    for cmd in \
+      '/usr/share/applications' \
+      '/var/lib/flatpak/exports/share/applications' \
+      "$XDG_DATA_HOME/applications" \
+      "$XDG_DATA_HOME/flatpak/exports/share/applications" \
+    ; do
+      if [ -d "$cmd" ]; then
+        for file in "$cmd"/*.desktop; do
+          [ -f "$file" ] || continue
+
+          name=''
+          action=''
+          app=''
+
+          section=0
+
+          while IFS= read -r line; do
+            case "$line" in
+              '[Desktop Entry]')
+                section=1
+
+                ;;
+              '[Desktop Action'*)
+                if [ "$section" -eq 1 ]; then
+                  apps["${name}"]="$app"
+                elif [ "$section" -eq 2 ]; then
+                  apps["${name} (${action})"]="${app}"
+                fi
+
+                section=2
+
+                ;;
+              Name=*)
+                if [ "$section" -eq 2 ]; then
+                  action="${line#Name=}"
+                else
+                  name="${line#Name=}"
+                fi
+
+                ;;
+              Exec=*)
+                app="${line#Exec=}"
+
+                ;;
+            esac
+          done < $file
+
+          if [ "$section" -eq 1 ]; then
+            apps["${name}"]="$app"
+          elif [ "$section" -eq 2 ]; then
+            apps["${name} (${action})"]="${app}"
+          fi
+        done
+      fi
+    done
+
+    for key in "${(@k)apps}"; do
+      echo "${apps[$key]},${key//\"/}"
+    done
+  }
+
+  _popup() {
+    local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot@launcher.service' | /usr/bin/cut -d= -f2)
+
+    if [ "$state" = 'failed' ]; then
+      /usr/bin/systemctl --user reset-failed 'foot@launcher.service' &&
+        state='inactive'
+    fi
+
+    /usr/bin/hyprctl dispatch -- togglespecialworkspace launcher
+
+    if [ "$state" = 'inactive' ]; then
+      /usr/bin/systemd-run \
+        --user \
+        --slice='foot.slice' \
+        --unit='foot@launcher' \
+        --nice=15 \
+        -- \
+        /usr/bin/foot \
+        --app-id='foot.launcher' \
+        --override='font=FiraCode Nerd Font:size=24' \
+        -e "$HOME/.scripts/hypr/launcherrc"
+    fi
+  }
+
+  if [ "$popup" = "1" ]; then
+    _popup || exit 1 && exit 0
+  fi
+
+  local choice="$(_items | /usr/bin/fzf --delimiter=',' --with-nth=2 --prompt=' ' --pointer='' --color='bg+:#1e1e2e')"
+
+  if [ -z "$choice" ]; then
+    echo "No choice made: exiting..." \
+      && exit 1
+  fi
+
+  local cmd="${choice%,*}"
+  local app="${cmd%% *}"
+
+  if [ -z "$app" ]; then
+    echo "No app selected: exiting..." \
+      && exit 1
+  fi
+
+  local args=()
+
+  if [[ $cmd == *' '* ]]; then
+    args_full="${cmd#* }"
+    args_array=("${(@s: :)args_full}")
+
+    for _arg in "${args_array[@]}"; do
+      if [[ ! $_arg =~ ^% ]]; then
+        args+=("$_arg")
+      fi
+    done
+  fi
+
+  local unit="app@$(echo -n "$app ${args[@]}" | /usr/bin/sha256sum | /usr/bin/cut -c1-8)"
+  local state=$(/usr/bin/systemctl --user show -p ActiveState "${unit}.service" | /usr/bin/cut -d= -f2)
+
+  if [ "$state" = 'failed' ]; then
+    /usr/bin/systemctl --user reset-failed "${unit}.service"
+  fi
+
+  /usr/bin/systemd-run \
+    --user \
+    --slice='app.slice' \
+    --unit="${unit}" \
+    --nice=10 \
+    $app \
+    ${args[@]}
+}
+
+main "$@"

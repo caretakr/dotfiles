@@ -1,0 +1,36 @@
+#!/bin/sh
+
+##
+## Lid startup
+##
+
+main() {
+  local switch=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      -s|--switch) switch="$2"; shift 2 ;;
+      --switch=*) switch="${1#*=}"; shift 1 ;;
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$switch" ] && { echo "Switch missing"; exit 1; }
+
+  case "$switch" in
+    on)
+      /usr/bin/hyprctl \
+        keyword \
+        monitor \
+        "desc:Sharp Corporation 0x14F9, disable"
+
+      $HOME/.scripts/hypr/hyprlockrc ;;
+    off)
+      /usr/bin/hyprctl \
+        keyword \
+        monitor \
+        "desc:Sharp Corporation 0x14F9, 1920x1200@59.95Hz, 0x0, 1.25" ;;
+  esac
+}
+
+main "$@"

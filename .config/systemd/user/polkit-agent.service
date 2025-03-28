@@ -1,9 +1,9 @@
 [Unit]
 Description=Polkit agent
-Documentation=man:polkit(1)
-PartOf=wayland-session.target
-Requires=sway-session.target
-After=sway-session.target
+Documentation=man:polkit(8)
+PartOf=graphical-session.target
+Requires=wayland-session.target
+After=wayland-session.target
 
 [Service]
 Slice=polkit-agent.slice
@@ -13,4 +13,4 @@ RestartSec=1
 Nice=5
 
 [Install]
-WantedBy=sway-session.target
+WantedBy=wayland-session.target

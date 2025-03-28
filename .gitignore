@@ -6,24 +6,23 @@
 
 *
 
+!.editorconfig
 !.gitignore
 
 !README.md
 
 !.zshenv
+
+!.zshenv.d
+!.zshenv.d/**/*.zsh
+
 !.zprofile
 !.zshrc
 !.zlogin
 !.zlogout
 
 !.p10k.zsh
-
 !.hushlogin
-
-!.tmux
-!.tmux/plugins
-!.tmux/plugins/tpm
-
 !.tmux.conf
 
 !.ssh
@@ -31,82 +30,183 @@
 
 !.config
 
+!.config/dunst
+!.config/dunst/dunstrc
+
 !.config/foot
-!.config/foot/**/*
+!.config/foot/foot.ini
 
-!.config/gammastep
-!.config/gammastep/**/*
-
-!.config/gtk-4.0
-!.config/gtk-4.0/**/*
+!.config/gtk-2.0
+!.config/gtk-2.0/settings.ini
 
 !.config/gtk-3.0
-!.config/gtk-3.0/**/*
+!.config/gtk-3.0/settings.ini
 
-!.config/idle
-!.config/idle/**/*
+!.config/gtk-4.0
+!.config/gtk-4.0/settings.ini
+
+!.config/hypr
+
+!.config/hypr/hypridle.conf
+!.config/hypr/hyprland.conf
+
+!.config/hypr/hyprland.conf.d
+!.config/hypr/hyprland.conf.d/**/*.conf
+!.config/hypr/hyprland.conf.d/**/*.conf.d
+
+!.config/hypr/hyprlock.conf
+!.config/hypr/hyprpaper.conf
+!.config/hypr/hyprsunset.conf
+
+!.config/hypr/hyprland.d
+!.config/hypr/hyprland.d/**/*.conf
 
 !.config/kanshi
-!.config/kanshi/**/*
-
-!.config/mako
-!.config/mako/**/*
+!.config/kanshi/config
 
 !.config/nvim
 !.config/nvim/**/*
 
 !.config/sway
 !.config/sway/config
+
 !.config/sway/config.d
 !.config/sway/config.d/**/*.d
 !.config/sway/config.d/**/*.conf
 
+!.config/swaybg
+!.config/swaybg/service.conf
+
+!.config/swayidle
+!.config/swayidle/service.conf
+
 !.config/swaylock
-!.config/swaylock/**/*
+!.config/swaylock/config
 
 !.config/systemd
 !.config/systemd/user
 
-!.config/systemd/user/clipboard.*
-!.config/systemd/user/gammastep.*
-!.config/systemd/user/idle.*
-!.config/systemd/user/kanshi.*
-!.config/systemd/user/keepassxc.*
-!.config/systemd/user/mako.*
-!.config/systemd/user/polkit-agent.*
-!.config/systemd/user/sway.*
-!.config/systemd/user/terminal.*
-!.config/systemd/user/tmux@.*
-!.config/systemd/user/udiskie.*
-!.config/systemd/user/wallpaper.*
-!.config/systemd/user/waybar.*
+!.config/systemd/user/clipboard.service
+!.config/systemd/user/clipboard.slice
 
-!.config/systemd/user/graphical-environment.*
+!.config/systemd/user/default.target.wants
 
-!.config/systemd/user/sway-session.*
-!.config/systemd/user/sway-session.*/clipboard.*
-!.config/systemd/user/sway-session.*/gammastep.*
-!.config/systemd/user/sway-session.*/idle.*
-!.config/systemd/user/sway-session.*/kanshi.*
-!.config/systemd/user/sway-session.*/keepassxc.*
-!.config/systemd/user/sway-session.*/mako.*
-!.config/systemd/user/sway-session.*/polkit-agent.*
-!.config/systemd/user/sway-session.*/tmux@*.*
-!.config/systemd/user/sway-session.*/udiskie.*
-!.config/systemd/user/sway-session.*/wallpaper.*
-!.config/systemd/user/sway-session.*/waybar.*
+!.config/systemd/user/default.target.wants/ssh-agent.service
+!.config/systemd/user/default.target.wants/deluge.service
 
-!.config/systemd/user/wayland-session.*
+!.config/systemd/user/deluge.service
+!.config/systemd/user/deluge.slice
 
-!.config/wallpaper
-!.config/wallpaper/service.conf
+!.config/systemd/user/dunst.service
+!.config/systemd/user/dunst.slice
+
+!.config/systemd/user/hypridle.service
+!.config/systemd/user/hypridle.slice
+
+!.config/systemd/user/hyprland.service
+!.config/systemd/user/hyprland.slice
+
+!.config/systemd/user/hyprland-session.target
+!.config/systemd/user/hyprland-session.target.wants
+
+!.config/systemd/user/hyprland-session.target.wants/hypridle.service
+!.config/systemd/user/hyprland-session.target.wants/hyprpaper.service
+!.config/systemd/user/hyprland-session.target.wants/hyprsocket.service
+!.config/systemd/user/hyprland-session.target.wants/hyprsunset.service
+!.config/systemd/user/hyprland-session.target.wants/waybar@hyprland.service
+
+!.config/systemd/user/hyprlock.service
+!.config/systemd/user/hyprlock.slice
+
+!.config/systemd/user/hyprpaper.service
+!.config/systemd/user/hyprpaper.slice
+
+!.config/systemd/user/hyprsocket.service
+!.config/systemd/user/hyprsocket.slice
+
+!.config/systemd/user/hyprsunset.service
+!.config/systemd/user/hyprsunset.slice
+
+!.config/systemd/user/hyprsunset-update.service
+!.config/systemd/user/hyprsunset-update.slice
+!.config/systemd/user/hyprsunset-update.timer
+
+!.config/systemd/user/kanshi.service
+!.config/systemd/user/kanshi.slice
+
+!.config/systemd/user/keepassxc.service
+!.config/systemd/user/keepassxc.slice
+
+!.config/systemd/user/polkit-agent.service
+!.config/systemd/user/polkit-agent.slice
+
+!.config/systemd/user/solaar.service
+!.config/systemd/user/solaar.slice
+
+!.config/systemd/user/ssh-agent.service
+!.config/systemd/user/ssh-agent.slice
+
+!.config/systemd/user/sway.service
+!.config/systemd/user/sway.slice
+
+!.config/systemd/user/sway-session.target
+!.config/systemd/user/sway-session.target.wants
+
+!.config/systemd/user/sway-session.target.wants/swaybg.service
+!.config/systemd/user/sway-session.target.wants/swayidle.service
+!.config/systemd/user/sway-session.target.wants/waybar@sway.service
+!.config/systemd/user/sway-session.target.wants/wlsunset.service
+
+!.config/systemd/user/swaybg.service
+!.config/systemd/user/swaybg.slice
+
+!.config/systemd/user/swayidle.service
+!.config/systemd/user/swayidle.slice
+
+!.config/systemd/user/timers.target
+!.config/systemd/user/timers.target.wants
+
+!.config/systemd/user/timers.target.wants/hyprsunset-update.timer
+
+!.config/systemd/user/tmux@.service
+
+!.config/systemd/user/tmux-terminal.slice
+
+!.config/systemd/user/udiskie.service
+!.config/systemd/user/udiskie.slice
+
+!.config/systemd/user/waybar@.service
+!.config/systemd/user/waybar.slice
+
+!.config/systemd/user/wayland-session.target
+!.config/systemd/user/wayland-session.target.wants
+
+!.config/systemd/user/wayland-session.target.wants/clipboard.service
+!.config/systemd/user/wayland-session.target.wants/dunst.service
+!.config/systemd/user/wayland-session.target.wants/kanshi.service
+!.config/systemd/user/wayland-session.target.wants/keepassxc.service
+!.config/systemd/user/wayland-session.target.wants/polkit-agent.service
+!.config/systemd/user/wayland-session.target.wants/tmux@terminal.service
+!.config/systemd/user/wayland-session.target.wants/tmux@scratchpad.service
+!.config/systemd/user/wayland-session.target.wants/udiskie.service
+
+!.config/systemd/user/wlsunset.service
+!.config/systemd/user/wlsunset.slice
+
+!.config/tmuxp
+!.config/tmuxp/**/*
 
 !.config/waybar
-!.config/waybar/config.json
+!.config/waybar/hyprland.jsonc
+!.config/waybar/sway.jsonc
 !.config/waybar/style.css
-!.config/waybar/config.d
-!.config/waybar/config.d/**
-!.config/waybar/config.d/**/*.json
+
+!.config/waybar/modules
+!.config/waybar/modules/**
+!.config/waybar/modules/**/*.jsonc
+
+!.config/wlsunset
+!.config/wlsunset/service.conf
 
 !.scripts
 
@@ -118,6 +218,9 @@
 !.scripts/sway/postrc.d
 !.scripts/sway/postrc.d/**/*.d
 !.scripts/sway/postrc.d/**/*.sh
+
+!.scripts/hypr
+!.scripts/hypr/**/*
 
 !.wallpapers
 !.wallpapers/**/*

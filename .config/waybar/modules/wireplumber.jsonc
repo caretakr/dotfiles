@@ -1,0 +1,7 @@
+{
+  "wireplumber": {
+    "format": "<span font_family=\"Symbols Nerd Font Mono\" font_size=\"12pt\">{icon}</span> <span font_family=\"Noto Sans\" font_size=\"10pt\">{volume}<span font_family=\"Noto Sans\" font_size=\"6pt\" rise=\"4pt\">%</span></span>",
+    "format-muted": "<span font_family=\"Noto Sans\" font_size=\"10pt\">MUTE</span>",
+    "format-icons": ["", "", ""],
+  },
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+##
+## Post scripts
+##
+
+postrc_directory="${HOME}/.scripts/hypr/postrc.d"
+
+if [ -d "$postrc_directory" ]; then
+  for file in "$postrc_directory"/?*.sh; do
+    [ -f "$file" ] \
+      && [ -x "$file" ] \
+      && . "$file"
+  done
+
+  unset file
+fi
+
+/usr/bin/systemctl --user start hyprland-session.target --no-block

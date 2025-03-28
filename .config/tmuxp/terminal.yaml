@@ -1,0 +1,8 @@
+##
+## Terminal config
+##
+
+session_name: "terminal"
+windows:
+  - panes:
+      -

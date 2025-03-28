@@ -1,0 +1,8 @@
+##
+## Scratchpad config
+##
+
+session_name: "scratchpad"
+windows:
+  - panes:
+      -

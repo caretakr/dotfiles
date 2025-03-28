@@ -1,0 +1,120 @@
+#!/bin/bash
+
+##
+## Sunset script
+##
+
+is_in_period() {
+    local current=$1
+    local start=$2
+    local end=$3
+
+    if (( start <= end )); then
+        (( current >= start && current < end ))
+    else
+        (( current >= start || current < end ))
+    fi
+}
+
+process_time() {
+    local time_str="$1"
+    local hours minutes
+    IFS=: read -r hours minutes <<< "$time_str"
+    if [ -z "$minutes" ]; then
+        minutes=0
+    fi
+    echo $(( 10#$hours * 60 + 10#$minutes ))  # 10# para evitar octal
+}
+
+main() {
+  local sunrise_start=""
+  local sunrise_end=""
+  local sunset_start=""
+  local sunset_end=""
+  local min_temp=""
+  local max_temp=""
+
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+      --sunrise-start=*) sunrise_start="${1#*=}"; shift 1 ;;
+      --sunrise-end=*) sunrise_end="${1#*=}"; shift 1 ;;
+      --sunset-start=*) sunset_start="${1#*=}"; shift 1 ;;
+      --sunset-end=*) sunset_end="${1#*=}"; shift 1 ;;
+      --min-temp=*) min_temp="${1#*=}"; shift 1 ;;
+      --max-temp=*) max_temp="${1#*=}"; shift 1 ;;
+
+      *) echo "Unknown argument: $1"; exit 1 ;;
+    esac
+  done
+
+  [ -z "$sunrise_start" ] && { echo "Sunrise start missing"; exit 1; }
+  [ -z "$sunrise_end" ] && { echo "Sunrise end missing"; exit 1; }
+  [ -z "$sunset_start" ] && { echo "Sunset start missing"; exit 1; }
+  [ -z "$sunset_end" ] && { echo "Sunset end missing"; exit 1; }
+  [ -z "$min_temp" ] && { echo "Minimum temperature missing"; exit 1; }
+  [ -z "$max_temp" ] && { echo "Maximum temperature missing"; exit 1; }
+
+    local sunrise_start_min sunset_start_min
+    local sunrise_end_min sunset_end_min
+
+    sunrise_start_min=$(process_time "$sunrise_start")
+    sunrise_end_min=$(process_time "$sunrise_end")
+    sunset_start_min=$(process_time "$sunset_start")
+    sunset_end_min=$(process_time "$sunset_end")
+
+    # Obter tempo atual
+    local current_hour current_minute current_minutes
+
+    current_hour=$(date +%H)
+    current_minute=$(date +%M)
+    current_minutes=$(( 10#$current_hour * 60 + 10#$current_minute ))
+
+    # Calcular temperatura
+    local temp
+
+    if is_in_period "$current_minutes" "$sunrise_start_min" "$sunrise_end_min"; then
+        # Fase do sunrise
+        if (( sunrise_start_min <= sunrise_end_min )); then
+            local elapsed=$(( current_minutes - sunrise_start_min ))
+            local duration=$(( sunrise_end_min - sunrise_start_min ))
+        else
+            if (( current_minutes >= sunrise_start_min )); then
+                local elapsed=$(( current_minutes - sunrise_start_min ))
+            else
+                local elapsed=$(( current_minutes + 1440 - sunrise_start_min ))
+            fi
+            local duration=$(( sunrise_end_min + 1440 - sunrise_start_min ))
+        fi
+
+        temp=$(( min_temp + ( (max_temp - min_temp) * elapsed ) / duration ))
+
+    elif is_in_period "$current_minutes" "$sunset_start_min" "$sunset_end_min"; then
+        # Fase do sunset
+        if (( sunset_start_min <= sunset_end_min )); then
+            local elapsed=$(( current_minutes - sunset_start_min ))
+            local duration=$(( sunset_end_min - sunset_start_min ))
+        else
+            if (( current_minutes >= sunset_start_min )); then
+                local elapsed=$(( current_minutes - sunset_start_min ))
+            else
+                local elapsed=$(( current_minutes + 1440 - sunset_start_min ))
+            fi
+            local duration=$(( sunset_end_min + 1440 - sunset_start_min ))
+        fi
+
+        temp=$(( max_temp - ( (max_temp - min_temp) * elapsed ) / duration ))
+
+    else
+        # Fora dos períodos de transição
+        if is_in_period "$current_minutes" "$sunrise_end_min" "$sunset_start_min"; then
+            temp=$max_temp
+        else
+            temp=$min_temp
+        fi
+    fi
+
+    # Aplicar temperatura
+    hyprctl hyprsunset temperature "$temp"
+}
+
+main "$@"

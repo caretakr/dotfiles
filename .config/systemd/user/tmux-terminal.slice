@@ -1,0 +1,6 @@
+##
+## Tmux (terminal) slice
+##
+
+[Slice]
+CPUWeight=idle

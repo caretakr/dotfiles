@@ -1,0 +1,14 @@
+[Unit]
+Description=Deluge Daemon
+Documentation=man:deluge(1)
+After=network.target
+
+[Service]
+Slice=deluge.slice
+ExecStart=/usr/bin/deluged -d -P %t/deluge.pid
+Restart=on-failure
+RestartSec=1
+Nice=5
+
+[Install]
+WantedBy=default.target
