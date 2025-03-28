@@ -2,8 +2,8 @@
 Description=wlsunset
 Documentation=man:wlsunset(1)
 PartOf=graphical-session.target
-Requires=wayland-session.target
-After=wayland-session.target
+Requires=sway.target
+After=sway.target
 
 [Service]
 Slice=wlsunset.slice
@@ -14,4 +14,4 @@ RestartSec=1
 Nice=5
 
 [Install]
-WantedBy=wayland-session.target
+WantedBy=sway.target

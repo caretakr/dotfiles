@@ -155,6 +155,7 @@
 !.config/systemd/user/sway-session.target.wants/swaybg.service
 !.config/systemd/user/sway-session.target.wants/swayidle.service
 !.config/systemd/user/sway-session.target.wants/waybar@sway.service
+!.config/systemd/user/sway-session.target.wants/wlsunset.service
 
 !.config/systemd/user/swaybg.service
 !.config/systemd/user/swaybg.slice
@@ -188,7 +189,6 @@
 !.config/systemd/user/wayland-session.target.wants/tmux@terminal.service
 !.config/systemd/user/wayland-session.target.wants/tmux@scratchpad.service
 !.config/systemd/user/wayland-session.target.wants/udiskie.service
-!.config/systemd/user/wayland-session.target.wants/wlsunset.service
 
 !.config/systemd/user/wlsunset.service
 !.config/systemd/user/wlsunset.slice
