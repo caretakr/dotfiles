@@ -5,69 +5,69 @@
 ##
 
 main() {
-	local popup="0"
+  local popup="0"
 
-	while [ "$#" -gt 0 ]; do
-		case "$1" in
-		-p | --popup)
-			popup="1"
-			shift 1
-			;;
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+    -p | --popup)
+      popup="1"
+      shift 1
+      ;;
 
-		*)
-			echo "Unknown argument: $1"
-			exit 1
-			;;
-		esac
-	done
+    *)
+      echo "Unknown argument: $1"
+      exit 1
+      ;;
+    esac
+  done
 
-	_items() {
-		echo "Suspend"
-		echo "Reboot"
-		echo "Power off"
-	}
+  _items() {
+    echo "Suspend"
+    echo "Reboot"
+    echo "Power off"
+  }
 
-	_popup() {
-		local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot-power.service' | /usr/bin/cut -d= -f2)
+  _popup() {
+    local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot-power.service' | /usr/bin/cut -d= -f2)
 
-		if [ "$state" = 'failed' ]; then
-			/usr/bin/systemctl --user reset-failed 'foot-power.service' &&
-				state='inactive'
-		fi
+    if [ "$state" = 'failed' ]; then
+      /usr/bin/systemctl --user reset-failed 'foot-power.service' &&
+        state='inactive'
+    fi
 
-		/usr/bin/hyprctl dispatch -- togglespecialworkspace power
+    /usr/bin/hyprctl dispatch -- togglespecialworkspace power
 
-		if [ "$state" = 'inactive' ]; then
-			/usr/bin/systemd-run \
-				--user \
-				--slice='foot.slice' \
-				--unit='foot-power' \
-				--nice=15 \
-				-- \
-				/usr/bin/foot \
-				--app-id='foot.power' \
-				--override='font=FiraCode Nerd Font:size=24' \
-				-e "$HOME/.scripts/hypr/powerrc"
-		fi
+    if [ "$state" = 'inactive' ]; then
+      /usr/bin/systemd-run \
+        --user \
+        --slice='foot.slice' \
+        --unit='foot-power' \
+        --nice=15 \
+        -- \
+        /usr/bin/foot \
+        --app-id='foot.power' \
+        --override='font=FiraCode Nerd Font:size=24' \
+        -e "$HOME/.scripts/hypr/powerrc"
+    fi
 
-	}
+  }
 
-	if [ "$popup" = "1" ]; then
-		_popup || exit 1 && exit 0
-	fi
+  if [ "$popup" = "1" ]; then
+    _popup || exit 1 && exit 0
+  fi
 
-	local choice="$(_items | /usr/bin/fzf --prompt=' ' --pointer='' --color='bg+:#1e1e2e')"
+  local choice="$(_items | /usr/bin/fzf --prompt=' ' --pointer='' --color='bg+:#1e1e2e')"
 
-	if [ -z "$choice" ]; then
-		echo "No choice made: exiting..." &&
-			exit 1
-	fi
+  if [ -z "$choice" ]; then
+    echo "No choice made: exiting..." &&
+      exit 1
+  fi
 
-	case "$choice" in
-	"Power off") /usr/bin/systemctl poweroff ;;
-	"Reboot") /usr/bin/systemctl reboot ;;
-	"Suspend") /usr/bin/systemctl suspend ;;
-	esac
+  case "$choice" in
+  "Power off") /usr/bin/systemctl poweroff ;;
+  "Reboot") /usr/bin/systemctl reboot ;;
+  "Suspend") /usr/bin/systemctl suspend ;;
+  esac
 }
 
 main "$@"

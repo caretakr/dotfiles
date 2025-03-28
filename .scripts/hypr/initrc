@@ -7,13 +7,13 @@
 initrc_directory="${HOME}/.scripts/hypr/initrc.d"
 
 if [ -d "$initrc_directory" ]; then
-	for file in "$initrc_directory"/?*.sh; do
-		[ -f "$file" ] \
+  for file in "$initrc_directory"/?*.sh; do
+    [ -f "$file" ] \
       && [ -x "$file" ] \
       && . "$file"
-	done
+  done
 
-	unset file
+  unset file
 fi
 
 /usr/bin/systemctl --user start hyprland.service --wait

@@ -40,7 +40,7 @@ export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_DATA_HOME}/flatpak/exports/share:/v
 
 export ANDROID_HOME="${HOME}/.android"
 export CARGO_HOME="${HOME}/.cargo"
-export GOPATH="$HOME/.go"
+export GOPATH="${HOME}/.go"
 export LUAROCKS_HOME="${HOME}/.luarocks"
 export PNPM_HOME="${HOME}/.pnpm"
 
@@ -65,6 +65,6 @@ export PATH="${PATH}:${PNPM_HOME}/bin"
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 ## Ensure that a non-login, non-interactive shell has a environment
-## if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
-##   source ".zprofile"
-## fi
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ".zprofile" ]]; then
+  source ".zprofile"
+fi

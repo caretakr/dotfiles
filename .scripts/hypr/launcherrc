@@ -80,27 +80,27 @@ main() {
   }
 
   _popup() {
-		local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot@launcher.service' | /usr/bin/cut -d= -f2)
+    local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot@launcher.service' | /usr/bin/cut -d= -f2)
 
-		if [ "$state" = 'failed' ]; then
-			/usr/bin/systemctl --user reset-failed 'foot@launcher.service' &&
-				state='inactive'
-		fi
+    if [ "$state" = 'failed' ]; then
+      /usr/bin/systemctl --user reset-failed 'foot@launcher.service' &&
+        state='inactive'
+    fi
 
-		/usr/bin/hyprctl dispatch -- togglespecialworkspace launcher
+    /usr/bin/hyprctl dispatch -- togglespecialworkspace launcher
 
-		if [ "$state" = 'inactive' ]; then
-			/usr/bin/systemd-run \
-				--user \
-				--slice='foot.slice' \
-				--unit='foot@launcher' \
-				--nice=15 \
-				-- \
-				/usr/bin/foot \
-				--app-id='foot.launcher' \
-				--override='font=FiraCode Nerd Font:size=24' \
-				-e "$HOME/.scripts/hypr/launcherrc"
-		fi
+    if [ "$state" = 'inactive' ]; then
+      /usr/bin/systemd-run \
+        --user \
+        --slice='foot.slice' \
+        --unit='foot@launcher' \
+        --nice=15 \
+        -- \
+        /usr/bin/foot \
+        --app-id='foot.launcher' \
+        --override='font=FiraCode Nerd Font:size=24' \
+        -e "$HOME/.scripts/hypr/launcherrc"
+    fi
   }
 
   if [ "$popup" = "1" ]; then

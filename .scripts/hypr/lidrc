@@ -23,7 +23,7 @@ main() {
         keyword \
         monitor \
         "desc:Sharp Corporation 0x14F9, disable"
-      
+
       $HOME/.scripts/hypr/hyprlockrc ;;
     off)
       /usr/bin/hyprctl \

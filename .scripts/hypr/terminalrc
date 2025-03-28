@@ -5,14 +5,14 @@
 ##
 
 main() {
-	local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot@terminal.service' | /usr/bin/cut -d= -f2)
+  local state=$(/usr/bin/systemctl --user show -p ActiveState 'foot@terminal.service' | /usr/bin/cut -d= -f2)
 
-	if [ "$state" = 'failed' ]; then
-		/usr/bin/systemctl --user reset-failed 'foot@terminal.service' &&
-			state='inactive'
-	fi
+  if [ "$state" = 'failed' ]; then
+    /usr/bin/systemctl --user reset-failed 'foot@terminal.service' &&
+      state='inactive'
+  fi
 
-	if [ "$state" = 'inactive' ]; then
+  if [ "$state" = 'inactive' ]; then
     command="new-session -s 0"
 
     if \
@@ -24,18 +24,18 @@ main() {
       command="attach-session -t terminal"
     fi
 
-		/usr/bin/systemd-run \
-			--user \
-			--slice='foot.slice' \
-			--unit='foot@terminal' \
-			--nice=15 \
-			-- \
-			/usr/bin/foot \
+    /usr/bin/systemd-run \
+      --user \
+      --slice='foot.slice' \
+      --unit='foot@terminal' \
+      --nice=15 \
+      -- \
+      /usr/bin/foot \
       --app-id="foot.terminal" \
-			/usr/bin/tmux \
+      /usr/bin/tmux \
       -S /run/user/${UID}/tmux-terminal \
       $command
-	fi
+  fi
 }
 
 main "$@"

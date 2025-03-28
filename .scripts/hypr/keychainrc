@@ -5,25 +5,25 @@
 ##
 
 main() {
-	local state=$(/usr/bin/systemctl --user show -p ActiveState 'keychain.service' | /usr/bin/cut -d= -f2)
+  local state=$(/usr/bin/systemctl --user show -p ActiveState 'keychain.service' | /usr/bin/cut -d= -f2)
 
-	if [ "$state" = 'failed' ]; then
-		/usr/bin/systemctl --user reset-failed 'keychain.service' &&
-			state='inactive'
-	fi
+  if [ "$state" = 'failed' ]; then
+    /usr/bin/systemctl --user reset-failed 'keychain.service' &&
+      state='inactive'
+  fi
 
-	/usr/bin/hyprctl dispatch -- togglespecialworkspace keychain
+  /usr/bin/hyprctl dispatch -- togglespecialworkspace keychain
 
-	if [ "$state" = 'inactive' ]; then
-		/usr/bin/systemd-run \
-			--user \
-			--slice='keychain.slice' \
-			--unit='keychain' \
-			--nice=15 \
-			-- \
-			/usr/bin/keepassxc \
-			--qwindowgeometry "${width}x${heigh}+${y}+${y}"
-	fi
+  if [ "$state" = 'inactive' ]; then
+    /usr/bin/systemd-run \
+      --user \
+      --slice='keychain.slice' \
+      --unit='keychain' \
+      --nice=15 \
+      -- \
+      /usr/bin/keepassxc \
+      --qwindowgeometry "${width}x${heigh}+${y}+${y}"
+  fi
 }
 
-main $@
+main "$@"
