@@ -1,7 +1,8 @@
 [Unit]
 Description=Sunset update for Hyprland
+PartOf=hyprland-session.target
 Requires=hyprsunset.service
-After=hyprland-session.target
+After=hyprsunset.service
 
 [Timer]
 OnCalendar=*-*-* *:*:00

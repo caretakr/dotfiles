@@ -1,9 +1,9 @@
 [Unit]
 Description=Sunset update for Hyprland
 Documentation=https://github.com/hyprwm/hyprsunset
-PartOf=graphical-session.target
-Requires=hyprland-session.target
-After=hyprland-session.target
+PartOf=hyprland-session.target
+Requires=hyprsunset.service
+After=hyprsunset.service
 
 [Service]
 Slice=hyprsunset-update.slice

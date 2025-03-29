@@ -113,6 +113,7 @@
 !.config/systemd/user/hyprland-session.target.wants/hyprpaper.service
 !.config/systemd/user/hyprland-session.target.wants/hyprsocket.service
 !.config/systemd/user/hyprland-session.target.wants/hyprsunset.service
+!.config/systemd/user/hyprland-session.target.wants/hyprsunset-update.timer
 !.config/systemd/user/hyprland-session.target.wants/waybar@hyprland.service
 
 !.config/systemd/user/hyprlock.service
@@ -162,11 +163,6 @@
 
 !.config/systemd/user/swayidle.service
 !.config/systemd/user/swayidle.slice
-
-!.config/systemd/user/timers.target
-!.config/systemd/user/timers.target.wants
-
-!.config/systemd/user/timers.target.wants/hyprsunset-update.timer
 
 !.config/systemd/user/tmux@.service
 
