@@ -1,5 +1,5 @@
 [Unit]
-Description=Sunset manager for Hyprland
+Description=Sunset for Hyprland
 Documentation=https://github.com/hyprwm/hyprsunset
 PartOf=graphical-session.target
 Requires=hyprland-session.target
