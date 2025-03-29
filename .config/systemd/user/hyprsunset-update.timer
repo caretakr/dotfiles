@@ -1,8 +1,5 @@
 [Unit]
 Description=Sunset update for Hyprland
-PartOf=hyprland-session.target
-Requires=hyprsunset.service
-After=hyprsunset.service
 
 [Timer]
 OnCalendar=*-*-* *:*:00
@@ -10,4 +7,4 @@ Persistent=true
 Unit=hyprsunset-update.service
 
 [Install]
-WantedBy=timers.target
+WantedBy=hyprland-session.target
