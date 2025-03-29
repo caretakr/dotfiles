@@ -2,8 +2,8 @@
 Description=Dunst notification daemon
 Documentation=man:dunst(1)
 PartOf=graphical-session.target
-Requires=wayland-session.target
-After=wayland-session.target
+Requires=wayland-session.target dbus.service
+After=wayland-session.target dbus.service
 
 [Service]
 Type=dbus
