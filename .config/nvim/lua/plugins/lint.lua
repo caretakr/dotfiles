@@ -18,6 +18,7 @@ return {
         lua = { "luacheck" },
         python = { "ruff" },
         scss = { "stylelint" },
+        sh = { "shellcheck" },
         terraform = { "terraform_validate" },
         tf = { "terraform_validate" },
         typescript = { "eslint_d" },
