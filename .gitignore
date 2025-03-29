@@ -204,6 +204,9 @@
 !.config/wlsunset
 !.config/wlsunset/service.conf
 
+!.librewolf
+!.librewolf/librewolf.overrides.cfg
+
 !.scripts
 
 !.scripts/sway
